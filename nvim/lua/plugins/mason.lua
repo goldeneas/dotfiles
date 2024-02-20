@@ -9,12 +9,18 @@ return {
 		mason.setup()
 		masonlsp.setup()
 
+		-- Add nvim-cmp capabilities to lsp servers
+		local cmplsp = require("cmp_nvim_lsp")
+		local capabilities = cmplsp.default_capabilities()
+
 		-- This automatically sets up servers for us
 		-- Check :h mason-lsp -> Automatic Server Setup
 		masonlsp.setup_handlers ({
-        function (server_name)
-            lspconfig[server_name].setup {}
-        end,
+			function (server_name)
+				lspconfig[server_name].setup {
+					capabilities = capabilities
+				}
+			end,
 		})
 	end,
 }

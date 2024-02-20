@@ -14,6 +14,11 @@ return {
 				f = { "<cmd>Telescope find_files<cr>", "Find File" },
 				r = { "<cmd>Telescope oldfiles<cr>", "Open Recent Files" },
 			},
+			w = {
+				name = "Window",
+				s = { "<cmd>split<cr>", "Split Horizontally" },
+				S = { "<cmd>vsplit<cr>", "Split Vertically" }
+			},
 			c = {
 				name = "Code",
 				s = { vim.lsp.buf.hover, "Hover" },
