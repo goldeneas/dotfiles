@@ -27,7 +27,6 @@ return {
 				d = { vim.lsp.buf.definition, "Check Definition" },
 				i = { vim.lsp.buf.implementation, "Check Implementations" },
 				t = { vim.lsp.buf.type_definition, "Check Type Definition" },
-				u = { "<cmd>Telescope lsp_references show_line=false<cr>", "Check Usages" },
 			},
 			d = {
 				name = "Diagnostics",
