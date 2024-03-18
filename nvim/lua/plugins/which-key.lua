@@ -7,6 +7,7 @@ return {
 	end,
 	config = function()
 		local whichkey = require("which-key")
+		local harpoon = require("harpoon")
 
 		whichkey.register({
 			f = {
@@ -34,7 +35,13 @@ return {
 				d = { vim.diagnostic.open_float, "Check Local Error" },
 				t = { "<cmd>TroubleToggle<cr>", "Toggle Errors Tab" },
 				c = { "<cmd>TroubleClose<cr>", "Close Errors Tab" },
-			}
+			},
+			s = {
+				name = "Switch Tabs",
+				s = { function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, "Tab List" },
+				a = { function() harpoon:list():append() end, "Append Tab" },
+			},
+			z = { "<cmd>HopWord<cr>", "Hop Word" },
 		}, { prefix = "<leader>" })
 	end
 }

@@ -22,6 +22,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
 				{ name = 'vsnip' },
+				{ name = 'copilot' }
 			}),
 
 			-- Set mapping keys 
