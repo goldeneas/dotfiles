@@ -5,6 +5,7 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/vim-vsnip",
 		"hrsh7th/cmp-vsnip",
+		"hrsh7th/cmp-nvim-lsp-signature-help",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -22,7 +23,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
 				{ name = 'vsnip' },
-				{ name = 'copilot' }
+				{ name = 'nvim_lsp_signature_help' },
 			}),
 
 			-- Set mapping keys 
