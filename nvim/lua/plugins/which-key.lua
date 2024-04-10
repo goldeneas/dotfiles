@@ -7,18 +7,14 @@ return {
 	end,
 	config = function()
 		local whichkey = require("which-key")
-		local harpoon = require("harpoon")
 
 		whichkey.register({
 			f = {
 				name = "File",
-				f = { "<cmd>Telescope frecency<cr>", "Find File" },
+				f = { "<cmd>Telescope find_files<cr>", "Find File" },
 				r = { "<cmd>Telescope oldfiles<cr>", "Open Recent Files" },
-				d = { "<cmd>Telescope file_browser<cr>", "Open File Browser" },
-			},
-			d = {
-				name = "Directory",
-				d = { "<cmd>Dirbuf<cr>", "Open Dirbuf" },
+				d = { "<cmd>Oil<cr>", "Open File Browser" },
+				s = { "<cmd>Telescope live_grep<cr>", "Open String Finder" },
 			},
 			w = {
 				name = "Window",
@@ -34,11 +30,6 @@ return {
 				i = { vim.lsp.buf.implementation, "Check Implementations" },
 				t = { vim.lsp.buf.type_definition, "Check Type Definition" },
 				u = { "<cmd>Telescope lsp_references show_line=false<cr>", "Check Usages" },
-			},
-			s = {
-				name = "Switch Tabs",
-				s = { function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, "Tab List" },
-				a = { function() harpoon:list():append() end, "Append Tab" },
 			},
 			x =  {
 				x = { "<cmd>TroubleToggle<cr>", "Toggle Errors Tab" },
