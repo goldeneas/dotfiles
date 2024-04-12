@@ -7,10 +7,13 @@ return {
 
 		telescope.setup({
 			defaults = {
-				path_display = {
-					"tail",
+				path_display = { "tail" },
+				preview = false,
+				layout_strategy = "center",
+				layout_config = {
+					prompt_position = "bottom"
 				}
 			}
 		})
-	end
+	end,
 }
