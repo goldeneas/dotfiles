@@ -27,6 +27,7 @@ map("<leader>xl", vim.diagnostic.open_float, "Show Local Error")
 map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ctions")
 
 map("K", vim.lsp.buf.hover, "Hover Documentation")
+map("<esc>", "<cmd>nohlsearch<cr>", "Remove Search Highlights")
 
 map("gw", "<cmd>HopWord<cr>", "[G]oto [W]ord")
 map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")

@@ -10,6 +10,10 @@ return {
     			operators = false,
     			folds = false,
     		},
+
+            overrides = {
+                ["@lsp.typemod.keyword.async.rust"] = { link = "GruvboxRed" }
+            }
         })
 
         vim.cmd([[colorscheme gruvbox]])
