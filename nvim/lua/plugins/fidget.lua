@@ -6,7 +6,12 @@ return {
             progress = {
                 display = {
                     render_limit = 1,
-                    done_ttl = 0
+                    done_ttl = 1,
+                    progress_ttl = math.huge,
+                },
+
+                ignore = {
+                    "jdtls",
                 },
             },
 
