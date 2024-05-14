@@ -23,12 +23,23 @@ return {
 					vim.fn["vsnip#anonymous"](args.body)
 				end,
 			},
+
+            -- Add bordered windows
+            window = {
+                completion = cmp.config.window.bordered({
+                    scrollbar = false,
+                }),
+
+                documentation = cmp.config.window.bordered({
+                    scrollbar = false
+                })
+            },
 			
 			-- Sources for completion list
 			-- Add buffer to suggest current file known-names in the list
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
-				{ name = 'vsnip' },
+				--{ name = 'vsnip' },
 				{ name = 'nvim_lsp_signature_help' },
 			}),
 

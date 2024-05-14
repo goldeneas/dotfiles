@@ -21,6 +21,10 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.background = "dark"
 vim.opt.termguicolors = true
 
+-- Disables menus auto selecting first option
+-- :h completeopt
+vim.opt.completeopt = menu,menuone,noselect
+
 -- I don't want to see virtual text while using trouble.nvim
 vim.diagnostic.config({
     virtual_text = false,
