@@ -17,7 +17,7 @@ map("<leader>wS", "<cmd>vsplit<cr>", "[S]plit [W]indow Vertically")
 map("<leader>ff", "<cmd>Telescope find_files<cr>", "[F]ind [F]ile")
 map("<leader>fr", "<cmd>Telescope oldfiles<cr>", "[F]ind [R]ecent File")
 map("<leader>fs", "<cmd>Telescope live_grep<cr>", "[F]ind [S]tring")
-map("<leader>fd", "<cmd>Oil<cr>", "[F]ind [D]irectory")
+map("-", "<cmd>Oil<cr>", "[F]ind [D]irectory")
 
 map("<leader>xx", "<cmd>TroubleToggle<cr>", "Show Errors Tab")
 map("<leader>xl", vim.diagnostic.open_float, "Show Local Error")
