@@ -12,7 +12,7 @@ return {
                     progress_ttl = math.huge,
 
                     format_message = function(msg)
-                        return msg.done and "Completed:" or "Doing:"
+                        return msg.done and "Completed ->" or "Working ->" 
                     end
                 },
 

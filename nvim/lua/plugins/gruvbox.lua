@@ -12,10 +12,12 @@ return {
     		},
 
             overrides = {
-                ["@lsp.typemod.keyword.async.rust"] = { link = "GruvboxRed" }
+                ["@lsp.typemod.keyword.async.rust"] = { link = "GruvboxRed" },
+                ["@lsp.typemod.typeAlias.library.rust"] = { link = "GruvboxYellow" },
+                ["@lsp.typemod.namespace.crateRoot.rust"] = { link = "GruvboxAqua" }
             }
         })
 
-        vim.cmd([[colorscheme gruvbox]])
+        vim.cmd("colorscheme gruvbox")
     end,
 }
