@@ -2,10 +2,8 @@ return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
 		"hrsh7th/vim-vsnip",
 		"hrsh7th/cmp-vsnip",
-		"hrsh7th/cmp-nvim-lsp-signature-help",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -39,8 +37,7 @@ return {
 			-- Add buffer to suggest current file known-names in the list
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
-				--{ name = 'vsnip' },
-				{ name = 'nvim_lsp_signature_help' },
+				{ name = 'vsnip' },
 			}),
 
 			-- Set mapping keys 
@@ -49,6 +46,14 @@ return {
 				["<S-TAB>"] = cmp.mapping.select_prev_item(),
 				["<CR>"] = cmp.mapping.confirm({ select = false })
 			},
+
+            formatting = {
+                format = function(_, vim_item)
+                    vim_item.menu = ""
+                    vim_item.kind = ""
+                    return vim_item
+                end
+            },
 		})
 	end
 }
