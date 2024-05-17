@@ -19,4 +19,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
-vim.cmd([[hi! link NormalFloat Normal]])
+-- For some reason something is changing these highlight
+-- This is required at last to be sure that those get overridden correctly
+require("colors")
