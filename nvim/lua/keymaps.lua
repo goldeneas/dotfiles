@@ -22,8 +22,6 @@ map("-", "<cmd>Oil<cr>", "[F]ind [D]irectory")
 map("<leader>xx", "<cmd>TroubleToggle<cr>", "Show Errors Tab")
 map("<leader>xl", vim.diagnostic.open_float, "Show Local Error")
 
-map("<leader>xl", vim.diagnostic.open_float, "Show Local Error")
-
 map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ctions")
 
 map("K", vim.lsp.buf.hover, "Hover Documentation")

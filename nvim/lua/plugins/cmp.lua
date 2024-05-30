@@ -47,6 +47,9 @@ return {
 				["<CR>"] = cmp.mapping.confirm({ select = false })
 			},
 
+            -- Disable first item selection
+            preselect = cmp.PreselectMode.None,
+
             formatting = {
                 format = function(_, vim_item)
                     vim_item.menu = ""

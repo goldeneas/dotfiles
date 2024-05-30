@@ -9,7 +9,7 @@ return {
             },
 
             hint_enable = false,
-            hi_parameter = "GruvboxRed",
+            hi_parameter = "LspSignatureActiveParameter",
         })
     end
 }
