@@ -1,6 +1,6 @@
 vim.g.mapleader = ","
 
-vim.opt.guicursor = ""
+vim.opt.guicursor = "i:block"
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
