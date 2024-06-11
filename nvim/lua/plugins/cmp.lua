@@ -44,7 +44,8 @@ return {
 			mapping = {
 				["<TAB>"] = cmp.mapping.select_next_item(),
 				["<S-TAB>"] = cmp.mapping.select_prev_item(),
-				["<CR>"] = cmp.mapping.confirm({ select = false })
+				["<CR>"] = cmp.mapping.confirm({ select = false }),
+                ["<C-Space>"] = cmp.mapping.complete(),
 			},
 
             -- Disable first item selection

@@ -8,8 +8,6 @@ return {
                 border = "rounded"
             },
 
-            always_show = true,
-
             hint_enable = false,
             hi_parameter = "LspSignatureActiveParameter",
         })
