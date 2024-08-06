@@ -7,12 +7,5 @@ return {
 	end,
 	config = function()
 		local wk = require("which-key")
-
-		wk.register({
-			["g"] = { name = "+goto" },
-			["<leader>w"] = { name = "+window" },
-			["<leader>f"] = { name = "+find" },
-			["<leader>x"] = { name = "+diagnostics" },
-		})
 	end
 }

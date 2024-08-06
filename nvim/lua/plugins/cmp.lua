@@ -52,7 +52,7 @@ return {
             preselect = cmp.PreselectMode.None,
 
             formatting = {
-                format = function(_, vim_item)
+                format = function(entry, vim_item)
                     vim_item.menu = ""
                     vim_item.kind = ""
                     return vim_item
