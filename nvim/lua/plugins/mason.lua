@@ -17,6 +17,8 @@ return {
 		-- Check :h mason-lsp -> Automatic Server Setup
 		masonlsp.setup_handlers ({
 			function (server_name)
+                if server_name == "jdtls" then return end
+
 				lspconfig[server_name].setup {
 					capabilities = capabilities
 				}
