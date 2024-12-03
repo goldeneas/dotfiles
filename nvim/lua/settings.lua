@@ -7,9 +7,14 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+vim.opt.updatetime = 50
+
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.smartcase = true
+
+vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
+vim.opt.undofile = true
 
 vim.opt.nu = true
 -- vim.opt.relativenumber = true
@@ -27,3 +32,6 @@ vim.opt.termguicolors = true
 -- Disables menus auto selecting first option
 -- :h completeopt
 vim.opt.completeopt = menu,menuone,noselect
+
+vim.opt.colorcolumn = "80"
+vim.opt.signcolumn = "yes"
