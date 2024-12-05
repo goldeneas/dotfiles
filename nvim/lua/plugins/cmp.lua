@@ -38,6 +38,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
 				{ name = 'vsnip' },
+				{ name = 'lazydev', group_index = 0},
 			}),
 
 			-- Set mapping keys 
