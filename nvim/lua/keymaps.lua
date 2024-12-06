@@ -1,3 +1,5 @@
+local f = require("functions")
+
 local map = function(mode, keys, func, desc)
 	local options = { noremap = true, silent = true }
 	if desc then
@@ -42,6 +44,11 @@ map("n", "<F10>", "<cmd>DapStepOver<cr>", "Dap StepOver")
 map("n", "<F11>", "<cmd>DapStepInto<cr>", "Dap StepInto")
 map("n", "<leader>b", "<cmd>DapToggleBreakpoint<cr>", "Dap Toggle Breakpoint")
 
+map("n", "<C-j>", "<cmd>cnext<cr>", "Next Quickfix Entry")
+map("n", "<C-k>", "<cmd>cprev<cr>", "Prev Quickfix Entry")
+map("n", "<C-h>", f.toggle_qf, "Toggle Quickfix")
+
+-- keep current search item at center of window
 map("n", "n", "nzzzv", "Search Next")
 map("n", "N", "Nzzzv", "Search Previous")
 

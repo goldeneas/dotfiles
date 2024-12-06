@@ -26,13 +26,13 @@ local workspace_dir = vim.fn.stdpath('data') .. '/jdtls-workspace/' .. project_n
 local config = {
     cmd = {
       'java',
-      '-javaagent:' .. lombok_path, 
+      '-javaagent:' .. lombok_path,
       '-Declipse.application=org.eclipse.jdt.ls.core.id1',
       '-Dosgi.bundles.defaultStartLevel=4',
       '-Declipse.product=org.eclipse.jdt.ls.core.product',
       '-Dlog.protocol=true',
       '-Dlog.level=ALL',
-      '-Xms1g',
+      '-Xmx1g',
       '--add-modules=ALL-SYSTEM',
       '--add-opens', 'java.base/java.util=ALL-UNNAMED',
       '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
@@ -40,7 +40,7 @@ local config = {
       '-configuration', jdtls_path .. '/config_' .. os,
       '-data', workspace_dir
     },
-    
+
     root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
 
     capabilities = capabilities,
