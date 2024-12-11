@@ -13,7 +13,7 @@ M.toggle_qf = function()
     return
   end
   if not vim.tbl_isempty(vim.fn.getqflist()) then
-    vim.cmd "copen"
+    vim.cmd "botright copen"
   end
 end
 
