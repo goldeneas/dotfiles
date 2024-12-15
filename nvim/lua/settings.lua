@@ -1,6 +1,8 @@
 vim.g.mapleader = ","
 
--- vim.opt.guicursor = "i:block"
+-- vim.opt.guicursor = {
+--   'i:block-Cursor/lCursor-blinkwait500-blinkon500-blinkoff500',
+-- }
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -13,6 +15,9 @@ vim.opt.smartcase = true
 
 vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
 vim.opt.undofile = true
+
+-- Enable highlight group for current line number
+vim.opt.cursorline = true
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

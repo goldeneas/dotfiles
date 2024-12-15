@@ -11,6 +11,10 @@ end
 -- <C-è>, Switches between current and previous buffer
 -- <C-à>, Moves to the first and last parenthesis in line
 -- <C-ò>, Toggles the quickfix list
+-- a, Goes into insert mode but moves the cursor to the right
+-- <S-a>, Goes into insert mode to the last character of the line
+-- <S-i>, Goes into insert mode to the first character of the line
+-- vi", Selects everything within \"\. Also works with parenthesis
 
 -- Window
 map("n", "<leader>ws", "<cmd>split<cr>", "[S]plit [W]indow Horizontally")
