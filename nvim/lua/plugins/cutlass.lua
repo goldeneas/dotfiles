@@ -1,5 +1,6 @@
 return {
 	"gbprod/cutlass.nvim",
+    event = "VeryLazy",
 	config = function()
 		local cutlass = require("cutlass")
 		cutlass.setup({

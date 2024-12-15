@@ -1,5 +1,3 @@
-local f = require("functions")
-
 local map = function(mode, keys, func, desc)
 	local options = { noremap = true, silent = true }
 	if desc then
@@ -8,6 +6,11 @@ local map = function(mode, keys, func, desc)
 
 	vim.keymap.set(mode, keys, func, options)
 end
+
+-- Useful keymaps from nvim
+-- <C-è>, Switches between current and previous buffer
+-- <C-à>, Moves to the first and last parenthesis in line
+-- <C-ò>, Toggles the quickfix list
 
 -- Window
 map("n", "<leader>ws", "<cmd>split<cr>", "[S]plit [W]indow Horizontally")
@@ -27,9 +30,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("n", "<leader>xl", vim.diagnostic.open_float, "Show [L]ocal Error")
         map("n", "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ctions")
         map("n", "K", vim.lsp.buf.hover, "Hover Symbol")
-        map("n", "<C-k>", vim.lsp.buf.type_definition, "Check Type Definition")
-        map("n", "ò", vim.diagnostic.goto_next, "Goto Next Diagnostic")
-        map("n", "à", vim.diagnostic.goto_prev, "Goto Prev Diagnostic")
+        map("n", "ò", vim.diagnostic.goto_next, "Goto Next Error")
+        map("n", "à", vim.diagnostic.goto_prev, "Goto Prev Error")
         map("n", "<leader>xr", vim.lsp.buf.references, "Show [R]eferences")
         map("n", "<leader>r", vim.lsp.buf.rename, "[R]ename")
     end,
@@ -52,7 +54,6 @@ map("n", "<F11>", "<cmd>DapStepInto<cr>", "Dap StepInto")
 map("n", "<leader>b", "<cmd>DapToggleBreakpoint<cr>", "Dap Toggle Breakpoint")
 
 -- Quickfix
-map("n", "<C-m>", f.toggle_qf, "Toggle Quickfix List")
 map("n", "<C-j>", "<cmd>cnext<cr>", "Next Quickfix Entry")
 map("n", "<C-k>", "<cmd>cprev<cr>", "Prev Quickfix Entry")
 
