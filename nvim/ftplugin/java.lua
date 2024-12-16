@@ -17,8 +17,7 @@ if not os or os == "unknown-os" then
   vim.notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
 end
 
-local cmplsp = require("cmp_nvim_lsp")
-local capabilities = cmplsp.default_capabilities()
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = vim.fn.stdpath('data') .. '/jdtls-workspace/' .. project_name
