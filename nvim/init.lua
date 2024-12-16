@@ -17,7 +17,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("plugins")
+require("lazy").setup({
+    spec = {
+        { import = "plugins", }
+    }
+})
 
 -- For some reason something is changing these highlight
 -- This is required at last to be sure that those get overridden correctly

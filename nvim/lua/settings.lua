@@ -1,8 +1,8 @@
 vim.g.mapleader = ","
 
--- vim.opt.guicursor = {
---   'i:block-Cursor/lCursor-blinkwait500-blinkon500-blinkoff500',
--- }
+vim.opt.guicursor = {
+  'i:block-Cursor/lCursor-blinkwait500-blinkon500-blinkoff500',
+}
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

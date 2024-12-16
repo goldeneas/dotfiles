@@ -1,7 +1,11 @@
 return {
-    'williamboman/mason.nvim',
+    "williamboman/mason.nvim",
     event = "VeryLazy",
-    dependencies = { 'williamboman/mason-lspconfig.nvim', 'neovim/nvim-lspconfig'},
+    dependencies = {
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+        "saghen/blink.cmp"
+    },
 	config = function()
 		local mason = require("mason")
 		local masonlsp = require("mason-lspconfig")
@@ -10,9 +14,8 @@ return {
 		mason.setup()
 		masonlsp.setup()
 
-		-- Add nvim-cmp capabilities to lsp servers
-		local cmplsp = require("cmp_nvim_lsp")
-		local capabilities = cmplsp.default_capabilities()
+		-- Add blink capabilities to lsp servers
+        local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		-- This automatically sets up servers for us
 		-- Check :h mason-lsp -> Automatic Server Setup
