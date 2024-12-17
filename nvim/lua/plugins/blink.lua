@@ -10,8 +10,8 @@ return {
 
     opts = {
         keymap = {
-            ["<Tab>"] = { "select_next", "fallback" },
-            ["<S-Tab>"] = { "select_prev", "fallback" },
+            ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+            ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
             ["<CR>"] = { "accept", "fallback" },
             ["<C-space>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
             ["<Up>"] = {},
@@ -26,15 +26,21 @@ return {
 
                 draw = {
                     padding = 0,
-                    columns = { { "label", "label_description", gap = 1 }, { "kind", "source_name" } },
+                    columns = { { "label" }, { "kind_icon" } },
                 }
             },
 
             documentation = {
+                auto_show = true,
+                auto_show_delay_ms = 200,
                 window = {
                     border = "rounded",
 
                 }
+            },
+
+            list = {
+                selection = "manual",
             },
 
             ghost_text = {
