@@ -21,9 +21,9 @@ map("n", "<leader>ws", "<cmd>split<cr>", "[S]plit [W]indow Horizontally")
 map("n", "<leader>wS", "<cmd>vsplit<cr>", "[S]plit [W]indow Vertically")
 
 -- Directories
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", "[F]ind [F]ile")
-map("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", "[F]ind [R]ecent File")
-map("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", "[F]ind [S]tring")
+map("n", "<leader>ff", "<cmd>FzfLua files<cr>", "[F]ind [F]ile")
+map("n", "<leader>fr", "<cmd>FzfLua oldfiles<cr>", "[F]ind [R]ecent File")
+map("n", "<leader>fs", "<cmd>FzfLua grep_project<cr>", "[F]ind [S]tring")
 map("n", "-", "<cmd>Oil<cr>", "[F]ind [D]irectory")
 map("n", "<F3>", "<cmd>UndotreeToggle<cr>", "Toggle Undotree")
 
@@ -47,7 +47,7 @@ map("n", "gf", "<Plug>(leap-from-window)", "Leap From Window")
 map("n", "gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 map("n", "gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 map("n", "gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-map("n", "gr", "<cmd>Telescope lsp_references show_line=false<cr>", "[G]oto [R]eferences")
+map("n", "gr", "<cmd>FzfLua lsp_references<cr>", "[G]oto [R]eferences")
 map({"n", "x"}, "<C-h>", "^", "Goto Line Start")
 map({"n", "x"}, "<C-l>", "g_", "Goto Line End")
 
