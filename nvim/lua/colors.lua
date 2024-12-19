@@ -16,5 +16,4 @@ vim.cmd("hi! link @keyword.type.c Orange")
 
 -- highlight bracker pair
 vim.cmd("hi! MatchParen ctermfg=235 ctermbg=109 guifg=#282828 guibg=#83a598")
-
 vim.cmd("hi! ColorColumn ctermbg=235 guibg=#2a2a2a")
