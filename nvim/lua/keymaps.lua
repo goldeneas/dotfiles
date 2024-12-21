@@ -37,7 +37,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("n", "ò", vim.diagnostic.goto_next, "Goto Next Error")
         map("n", "à", vim.diagnostic.goto_prev, "Goto Prev Error")
         map("n", "<leader>xr", vim.lsp.buf.references, "Show [R]eferences")
-        map("n", "<leader>r", vim.lsp.buf.rename, "[R]ename")
+
+        map("n", "<leader>r", function()
+            return ":IncRename " .. vim.fn.expand("<cword>")
+        end, { desc = "[R]ename", expr = true })
     end,
 })
 

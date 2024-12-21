@@ -21,7 +21,7 @@ return {
         completion = {
             menu = {
                 border = "rounded",
-                scrollbar = false,
+                -- scrollbar = false,
                 winhighlight = "Normal:NormalFloat,FloatBorder:NormalFloat",
 
                 draw = {
