@@ -16,6 +16,12 @@ end
 -- <S-i>, Goes into insert mode to the first character of the line
 -- vi", Selects everything within \"\. Also works with parenthesis
 
+-- IncRename
+-- TODO: Change this maybe
+vim.keymap.set("n", "<leader>r", function()
+  return ":IncRename " .. vim.fn.expand("<cword>")
+end, { desc = "[R]ename", expr = true })
+
 -- Window
 map("n", "<leader>ws", "<cmd>split<cr>", "[S]plit [W]indow Horizontally")
 map("n", "<leader>wS", "<cmd>vsplit<cr>", "[S]plit [W]indow Vertically")
@@ -37,10 +43,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("n", "ò", vim.diagnostic.goto_next, "Goto Next Error")
         map("n", "à", vim.diagnostic.goto_prev, "Goto Prev Error")
         map("n", "<leader>xr", vim.lsp.buf.references, "Show [R]eferences")
-
-        map("n", "<leader>r", function()
-            return ":IncRename " .. vim.fn.expand("<cword>")
-        end, { desc = "[R]ename", expr = true })
     end,
 })
 
