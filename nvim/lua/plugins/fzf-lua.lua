@@ -41,6 +41,10 @@ return {
             cwd_prompt = false,
         },
 
+        oldfiles = {
+            cwd_prompt = true,
+        },
+
         profiles = {
             previewer = true,
 

@@ -1,8 +1,7 @@
-local map = function(mode, keys, func, desc)
-	local options = { noremap = true, silent = true }
-	if desc then
-		options.desc = desc
-	end
+local map = function(mode, keys, func, desc, opts)
+	local default_opts = { noremap = true, silent = true }
+    local options = vim.tbl_extend("force", default_opts, opts or {})
+	if desc then options.desc = desc end
 
 	vim.keymap.set(mode, keys, func, options)
 end
@@ -15,12 +14,6 @@ end
 -- <S-a>, Goes into insert mode to the last character of the line
 -- <S-i>, Goes into insert mode to the first character of the line
 -- vi", Selects everything within \"\. Also works with parenthesis
-
--- IncRename
--- TODO: Change this maybe
-vim.keymap.set("n", "<leader>r", function()
-  return ":IncRename " .. vim.fn.expand("<cword>")
-end, { desc = "[R]ename", expr = true })
 
 -- Window
 map("n", "<leader>ws", "<cmd>split<cr>", "[S]plit [W]indow Horizontally")
@@ -43,6 +36,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("n", "ò", vim.diagnostic.goto_next, "Goto Next Error")
         map("n", "à", vim.diagnostic.goto_prev, "Goto Prev Error")
         map("n", "<leader>xr", vim.lsp.buf.references, "Show [R]eferences")
+
+        map("n", "<leader>r", function()
+            return ":IncRename " .. vim.fn.expand("<cword>")
+        end, "[R]ename", { expr = true })
     end,
 })
 
