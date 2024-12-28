@@ -38,7 +38,7 @@ return {
         },
 
         files = {
-            cwd_prompt = false,
+            cwd_prompt = true,
         },
 
         oldfiles = {
