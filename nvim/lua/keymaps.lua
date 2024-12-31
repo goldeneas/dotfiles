@@ -11,6 +11,7 @@ end
 -- Useful keymaps from nvim
 -- <C-è>, Switches between current and previous buffer
 -- <C-à>, Moves to the first and last parenthesis in line
+-- <C-ò> OR Enter, Opens the quickfix list
 -- a, Goes into insert mode but moves the cursor to the right
 -- <S-a>, Goes into insert mode to the last character of the line
 -- <S-i>, Goes into insert mode to the first character of the line
@@ -24,7 +25,6 @@ map({ "n", "x" }, "<Del>", '"_x', "Delete to void")
 map({ "n", "x" }, "d", '"_d', "Delete to void")
 map({ "n", "x" }, "D", '"_D', "Delete to void")
 
-
 -- Disables replacing current clipboard after pasting
 map("x", "p", '"_dP', "Just Paste")
 
@@ -35,7 +35,7 @@ map("n", "<leader>wS", "<cmd>vsplit<cr>", "[S]plit [W]indow Vertically")
 -- Directories
 map("n", "<leader>ff", "<cmd>FzfLua files<cr>", "[F]ind [F]ile")
 map("n", "<leader>fr", "<cmd>FzfLua oldfiles<cr>", "[F]ind [R]ecent File")
-map("n", "<leader>fs", "<cmd>FzfLua grep_project<cr>", "[F]ind [S]tring")
+map("n", "<leader>fs", "<cmd>FzfLua live_grep<cr>", "[F]ind [S]tring")
 map("n", "-", "<cmd>Oil<cr>", "[F]ind [D]irectory")
 map("n", "<F3>", "<cmd>UndotreeToggle<cr>", "Toggle Undotree")
 

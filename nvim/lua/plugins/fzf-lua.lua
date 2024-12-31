@@ -12,6 +12,7 @@ return {
             prompt = "> ",
             header = false,
 
+            -- TODO:
             -- add gap betwenn marker and git icons
             -- change tab and s-tab keybinds
             -- -- tab goes down instead of up and viceversa
@@ -34,6 +35,18 @@ return {
                 ["--layout"] = "default",
                 ["--marker"] = "+ ",
                 ["--cycle"] = true,
+            },
+        },
+
+        grep = {
+            previewer = true,
+
+            winopts = {
+                height = 0.8,
+                width = 0.8,
+                preview = {
+                    scrollbar = false,
+                },
             },
         },
 
