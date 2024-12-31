@@ -1,3 +1,5 @@
+local fn = require("functions")
+
 local map = function(mode, keys, func, desc, opts)
 	local default_opts = { noremap = true, silent = true }
     local options = vim.tbl_extend("force", default_opts, opts or {})
@@ -9,11 +11,22 @@ end
 -- Useful keymaps from nvim
 -- <C-è>, Switches between current and previous buffer
 -- <C-à>, Moves to the first and last parenthesis in line
--- <C-ò>, Toggles the quickfix list
 -- a, Goes into insert mode but moves the cursor to the right
 -- <S-a>, Goes into insert mode to the last character of the line
 -- <S-i>, Goes into insert mode to the first character of the line
 -- vi", Selects everything within \"\. Also works with parenthesis
+
+-- Better Cut/Delete
+map({ "n", "x" }, "x", "d", "Cut")
+map("n", "xx", "dd", "Cut Line")
+map("n", "X", "D", "Cut to End of Line")
+map({ "n", "x" }, "<Del>", '"_x', "Delete to void")
+map({ "n", "x" }, "d", '"_d', "Delete to void")
+map({ "n", "x" }, "D", '"_D', "Delete to void")
+
+
+-- Disables replacing current clipboard after pasting
+map("x", "p", '"_dP', "Just Paste")
 
 -- Window
 map("n", "<leader>ws", "<cmd>split<cr>", "[S]plit [W]indow Horizontally")
@@ -62,13 +75,11 @@ map("n", "<leader>b", "<cmd>DapToggleBreakpoint<cr>", "Dap Toggle Breakpoint")
 -- Quickfix
 map("n", "<C-j>", "<cmd>cnext<cr>", "Next Quickfix Entry")
 map("n", "<C-k>", "<cmd>cprev<cr>", "Prev Quickfix Entry")
+map("n", "<C-m>", fn.toggle_qf, "Toggle Quickfix")
 
 -- Keep current search item at center of window
 map("n", "n", "nzzzv", "Search Next")
 map("n", "N", "Nzzzv", "Search Previous")
-
--- Disables replacing current clipboard after pasting
-map("x", "p", "\"_dP", "Just Paste")
 
 -- Remove highlighting from search
 map("n", "<esc>", "<cmd>nohlsearch<cr>", "Remove Search Highlights")

@@ -6,7 +6,9 @@ return {
 		lualine.setup({
 			theme = "gruvbox",
 			sections = {
-				lualine_x = { "filetype" },
+				lualine_x = { "" },
+                lualine_y = { "filetype" },
+                lualine_z = { "" },
 			}
 		})
 	end

@@ -45,7 +45,7 @@ return {
 
             ghost_text = {
                 enabled = false,
-            }
+            },
         },
 
         appearance = {
@@ -89,9 +89,10 @@ return {
                         end, items)
                     end
                 },
+                -- FIXME: this 100% all cpu cores
                 ripgrep = {
                     module = "blink-ripgrep",
-                    enabled = true,
+                    enabled = false,
                     name = "Ripgrep",
                     -- the options below are optional, some default values are shown
                     opts = {
@@ -122,10 +123,6 @@ return {
                         additional_rg_options = {}
                     },
                 },
-
-                -- TODO:
-                -- stop prompting autocomplete on symbols (, ;...)
-                -- make lazydev work
             },
         },
     }

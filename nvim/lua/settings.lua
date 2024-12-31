@@ -20,7 +20,7 @@ vim.opt.undofile = true
 vim.opt.cursorline = true
 
 vim.opt.nu = true
-vim.opt.relativenumber = true
+-- vim.opt.relativenumber = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
