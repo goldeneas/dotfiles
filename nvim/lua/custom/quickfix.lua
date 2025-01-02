@@ -1,6 +1,6 @@
 local M = {}
 
-M.toggle_qf = function()
+M.toggle = function()
     for _, win in pairs(vim.fn.getwininfo()) do
         if win.quickfix == 1 or win.loclist == 1 then
             vim.cmd("cclose")

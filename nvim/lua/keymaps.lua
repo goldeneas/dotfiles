@@ -1,4 +1,4 @@
-local fn = require("functions")
+local qf = require("custom.quickfix")
 
 local map = function(mode, keys, func, desc, opts)
 	local default_opts = { noremap = true, silent = true }
@@ -31,6 +31,12 @@ map("x", "p", '"_dP', "Just Paste")
 -- Window
 map("n", "<leader>ws", "<cmd>split<cr>", "[S]plit [W]indow Horizontally")
 map("n", "<leader>wS", "<cmd>vsplit<cr>", "[S]plit [W]indow Vertically")
+
+-- Window Movement
+map("n", "<M-h>", "<cmd>wincmd h<cr>", "Move Cursor to Left Window")
+map("n", "<M-j>", "<cmd>wincmd j<cr>", "Move Cursor to Up Window")
+map("n", "<M-k>", "<cmd>wincmd k<cr>", "Move Cursor to Down Window")
+map("n", "<M-l>", "<cmd>wincmd l<cr>", "Move Cursor to Right Window")
 
 -- Directories
 map("n", "<leader>ff", "<cmd>FzfLua files<cr>", "[F]ind [F]ile")
@@ -75,7 +81,7 @@ map("n", "<leader>b", "<cmd>DapToggleBreakpoint<cr>", "Dap Toggle Breakpoint")
 -- Quickfix
 map("n", "<C-j>", "<cmd>cnext<cr>", "Next Quickfix Entry")
 map("n", "<C-k>", "<cmd>cprev<cr>", "Prev Quickfix Entry")
-map("n", "<C-m>", fn.toggle_qf, "Toggle Quickfix")
+map("n", "<C-m>", qf.toggle, "Toggle Quickfix")
 
 -- Keep current search item at center of window
 map("n", "n", "nzzzv", "Search Next")
@@ -83,3 +89,6 @@ map("n", "N", "Nzzzv", "Search Previous")
 
 -- Remove highlighting from search
 map("n", "<esc>", "<cmd>nohlsearch<cr>", "Remove Search Highlights")
+
+-- Sane terminal mode exit
+map("t", "<esc>", "<C-\\><C-n>", "Exit Terminal Mode")
