@@ -11,6 +11,7 @@ return {
             previewer = false,
             prompt = "> ",
             header = false,
+            git_icons = false,
 
             -- TODO:
             -- add gap betwenn marker and git icons

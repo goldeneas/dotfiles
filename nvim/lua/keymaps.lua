@@ -24,6 +24,8 @@ map("n", "X", "D", "Cut to End of Line")
 map({ "n", "x" }, "<Del>", '"_x', "Delete to void")
 map({ "n", "x" }, "d", '"_d', "Delete to void")
 map({ "n", "x" }, "D", '"_D', "Delete to void")
+map({ "n", "x" }, "c", '"_c', "Change to void")
+map({ "n", "x" }, "C", '"_C', "Change to void")
 
 -- Disables replacing current clipboard after pasting
 map("x", "p", '"_dP', "Just Paste")
@@ -45,22 +47,22 @@ map("n", "<leader>fs", "<cmd>FzfLua live_grep<cr>", "[F]ind [S]tring")
 map("n", "-", "<cmd>Oil<cr>", "[F]ind [D]irectory")
 map("n", "<F3>", "<cmd>UndotreeToggle<cr>", "Toggle Undotree")
 
--- LSP/Code
-vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function(_)
-        map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", "Show Errors Tab")
-        map("n", "<leader>xl", vim.diagnostic.open_float, "Show [L]ocal Error")
-        map("n", "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ctions")
-        map("n", "K", vim.lsp.buf.hover, "Hover Symbol")
-        map("n", "ò", vim.diagnostic.goto_next, "Goto Next Error")
-        map("n", "à", vim.diagnostic.goto_prev, "Goto Prev Error")
-        map("n", "<leader>xr", vim.lsp.buf.references, "Show [R]eferences")
+-- LSP/Quickfix
+map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", "Show Errors Tab")
+map("n", "<leader>xl", vim.diagnostic.open_float, "Show [L]ocal Error")
+map("n", "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ctions")
+map("n", "K", vim.lsp.buf.hover, "Hover Symbol")
+map("n", "<leader>xr", vim.lsp.buf.references, "Show [R]eferences")
+map("n", "<C-j>", vim.diagnostic.goto_next, "Goto Next Error")
+map("n", "<C-k>", vim.diagnostic.goto_prev, "Goto Prev Error")
 
-        map("n", "<leader>r", function()
-            return ":IncRename " .. vim.fn.expand("<cword>")
-        end, "[R]ename", { expr = true })
-    end,
-})
+-- Quickfix
+map("n", "<C-q>", qf.toggle, "Toggle Quickfix")
+
+-- IncRename
+map("n", "<leader>r", function()
+    return ":IncRename " .. vim.fn.expand("<cword>")
+end, "[R]ename", { expr = true })
 
 -- Goto
 map("n", "f", "<Plug>(leap)", "Leap")
@@ -77,11 +79,6 @@ map("n", "<F5>", "<cmd>DapContinue<cr>", "Dap Continue")
 map("n", "<F10>", "<cmd>DapStepOver<cr>", "Dap StepOver")
 map("n", "<F11>", "<cmd>DapStepInto<cr>", "Dap StepInto")
 map("n", "<leader>b", "<cmd>DapToggleBreakpoint<cr>", "Dap Toggle Breakpoint")
-
--- Quickfix
-map("n", "<C-j>", "<cmd>cnext<cr>", "Next Quickfix Entry")
-map("n", "<C-k>", "<cmd>cprev<cr>", "Prev Quickfix Entry")
-map("n", "<C-m>", qf.toggle, "Toggle Quickfix")
 
 -- Keep current search item at center of window
 map("n", "n", "nzzzv", "Search Next")

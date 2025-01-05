@@ -38,4 +38,12 @@ M.open_float = function(opts)
     return { win = win, buf = buf }
 end
 
+M.win_is_qf_or_loc = function(win_id)
+    local win_info = vim.fn.getwininfo(win_id)
+    local is_qf = win_info[1].quickfix
+    local is_loc = win_info[1].loclist
+
+    return is_qf or is_loc
+end
+
 return M

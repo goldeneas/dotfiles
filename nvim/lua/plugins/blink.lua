@@ -40,7 +40,7 @@ return {
             },
 
             list = {
-                selection = "manual",
+                selection = "auto_insert",
             },
 
             ghost_text = {
