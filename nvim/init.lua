@@ -1,7 +1,6 @@
 -- require other config files
 require("settings")
 require("keymaps")
-require("lsp")
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

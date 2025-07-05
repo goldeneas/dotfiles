@@ -89,7 +89,7 @@ return {
                         end, items)
                     end
                 },
-                -- FIXME: this 100% all cpu cores
+
                 ripgrep = {
                     module = "blink-ripgrep",
                     enabled = false,

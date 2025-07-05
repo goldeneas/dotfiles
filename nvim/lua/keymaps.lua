@@ -1,4 +1,5 @@
 local qf = require("custom.quickfix")
+local functions = require("custom.lsp")
 
 local map = function(mode, keys, func, desc, opts)
 	local default_opts = { noremap = true, silent = true }
@@ -49,9 +50,9 @@ map("n", "<F3>", "<cmd>UndotreeToggle<cr>", "Toggle Undotree")
 
 -- LSP/Quickfix
 map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", "Show Errors Tab")
-map("n", "<leader>xl", vim.diagnostic.open_float, "Show [L]ocal Error")
+map("n", "<leader>xl", functions.open_float_rounded, "Show [L]ocal Error")
 map("n", "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ctions")
-map("n", "K", vim.lsp.buf.hover, "Hover Symbol")
+map("n", "K", functions.hover_with_rounded, "Hover Symbol")
 map("n", "<leader>xr", vim.lsp.buf.references, "Show [R]eferences")
 map("n", "<C-j>", vim.diagnostic.goto_next, "Goto Next Error")
 map("n", "<C-k>", vim.diagnostic.goto_prev, "Goto Prev Error")
