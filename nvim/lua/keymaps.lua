@@ -1,5 +1,4 @@
-local qf = require("custom.quickfix")
-local functions = require("custom.lsp")
+local functions = require("custom.functions")
 
 local map = function(mode, keys, func, desc, opts)
 	local default_opts = { noremap = true, silent = true }
@@ -53,17 +52,15 @@ map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", "Show Errors Tab")
 map("n", "<leader>xl", functions.open_float_rounded, "Show [L]ocal Error")
 map("n", "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ctions")
 map("n", "K", functions.hover_with_rounded, "Hover Symbol")
-map("n", "<leader>xr", vim.lsp.buf.references, "Show [R]eferences")
-map("n", "<C-j>", vim.diagnostic.goto_next, "Goto Next Error")
-map("n", "<C-k>", vim.diagnostic.goto_prev, "Goto Prev Error")
+map("n", "<leader>xr", "<cmd>FzfLua lsp_references<cr>", "Show [R]eferences")
+map("n", "<C-k>", functions.goto_next_error, "Goto Next Error")
+map("n", "<C-j>", functions.goto_prev_error, "Goto Prev Error")
 
 -- Quickfix
-map("n", "<C-q>", qf.toggle, "Toggle Quickfix")
+map("n", "<C-q>", functions.qf_toggle, "Toggle Quickfix")
 
 -- IncRename
-map("n", "<leader>r", function()
-    return ":IncRename " .. vim.fn.expand("<cword>")
-end, "[R]ename", { expr = true })
+map("n", "<leader>r", functions.inc_rename, "[R]ename", { expr = true })
 
 -- Goto
 map("n", "f", "<Plug>(leap)", "Leap")
@@ -71,7 +68,6 @@ map("n", "gf", "<Plug>(leap-from-window)", "Leap From Window")
 map("n", "gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 map("n", "gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 map("n", "gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-map("n", "gr", "<cmd>FzfLua lsp_references<cr>", "[G]oto [R]eferences")
 map({"n", "x"}, "<C-h>", "^", "Goto Line Start")
 map({"n", "x"}, "<C-l>", "g_", "Goto Line End")
 
