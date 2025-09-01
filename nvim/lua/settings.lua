@@ -25,7 +25,7 @@ vim.opt.nu = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
--- vim.opt.scrolloff = 15
+-- vim.opt.scrolloff = 9999
 
 vim.opt.clipboard = "unnamedplus"
 

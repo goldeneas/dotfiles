@@ -1,5 +1,49 @@
 local M = {}
 
+M.hover_with_rounded = function()
+    vim.lsp.buf.hover({ border = "rounded" })
+end
+
+M.open_float_rounded = function()
+    vim.diagnostic.open_float({ border = "rounded" })
+end
+
+M.goto_next_error = function()
+    vim.diagnostic.jump({
+        count = 1,
+        severity = vim.diagnostic.severity.ERROR,
+    })
+end
+
+M.goto_prev_error = function()
+    vim.diagnostic.jump({
+        count = 1,
+        severity = vim.diagnostic.severity.ERROR,
+    })
+end
+
+M.inc_rename = function()
+    return ":IncRename " .. vim.fn.expand("<cword>")
+end
+
+M.qf_toggle = function()
+    for _, win in pairs(vim.fn.getwininfo()) do
+        if win.quickfix == 1 or win.loclist == 1 then
+            vim.cmd("cclose")
+        else
+            vim.cmd("vertical botright copen 60")
+        end
+    end
+end
+
+M.goto_window_top = function()
+    vim.cmd("normal! H")
+end
+
+M.goto_window_bottom = function()
+    vim.cmd("normal! L")
+end
+
 -- parameters:
 -- opts: table
 -- BUF, width, height, col, row
@@ -36,14 +80,6 @@ M.open_float = function(opts)
     local win = vim.api.nvim_open_win(buf, true, win_config)
 
     return { win = win, buf = buf }
-end
-
-M.win_is_qf_or_loc = function(win_id)
-    local win_info = vim.fn.getwininfo(win_id)
-    local is_qf = win_info[1].quickfix
-    local is_loc = win_info[1].loclist
-
-    return is_qf or is_loc
 end
 
 return M

@@ -1,4 +1,3 @@
--- require other config files
 require("settings")
 require("keymaps")
 
@@ -22,6 +21,8 @@ require("lazy").setup({
     }
 })
 
--- For some reason something is changing these highlight
--- This is required at last to be sure that those get overridden correctly
+require("lsp.loader")
+
+-- for some reason something is changing these highlight
+-- this is required at last to be sure that those get overridden correctly
 require("colors")

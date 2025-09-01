@@ -1,4 +1,4 @@
-local functions = require("custom.functions")
+local functions = require("api.functions")
 
 local map = function(mode, keys, func, desc, opts)
 	local default_opts = { noremap = true, silent = true }
@@ -40,6 +40,9 @@ map("n", "<M-j>", "<cmd>wincmd j<cr>", "Move Cursor to Up Window")
 map("n", "<M-k>", "<cmd>wincmd k<cr>", "Move Cursor to Down Window")
 map("n", "<M-l>", "<cmd>wincmd l<cr>", "Move Cursor to Right Window")
 
+map("n", "<C-j>", "<C-e>", "Scroll down")
+map("n", "<C-k>", "<C-y>", "Scroll up")
+
 -- Directories
 map("n", "<leader>ff", "<cmd>FzfLua files<cr>", "[F]ind [F]ile")
 map("n", "<leader>fr", "<cmd>FzfLua oldfiles<cr>", "[F]ind [R]ecent File")
@@ -53,11 +56,11 @@ map("n", "<leader>xl", functions.open_float_rounded, "Show [L]ocal Error")
 map("n", "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ctions")
 map("n", "K", functions.hover_with_rounded, "Hover Symbol")
 map("n", "<leader>xr", "<cmd>FzfLua lsp_references<cr>", "Show [R]eferences")
-map("n", "<C-k>", functions.goto_next_error, "Goto Next Error")
-map("n", "<C-j>", functions.goto_prev_error, "Goto Prev Error")
+-- map("n", "<C-k>", functions.goto_next_error, "Goto Next Error")
+-- map("n", "<C-j>", functions.goto_prev_error, "Goto Prev Error")
 
 -- Quickfix
-map("n", "<C-q>", functions.qf_toggle, "Toggle Quickfix")
+map("n", "<F4>", functions.qf_toggle, "Toggle Quickfix")
 
 -- IncRename
 map("n", "<leader>r", functions.inc_rename, "[R]ename", { expr = true })
