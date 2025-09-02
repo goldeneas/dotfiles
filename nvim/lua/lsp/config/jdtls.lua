@@ -11,6 +11,9 @@ if not os then
   vim.notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
 end
 
+local bundles = {}
+vim.list_extend(bundles, spring.java_extensions())
+
 local config = {
   cmd = {
       'java',
@@ -36,10 +39,11 @@ local config = {
     java = {}
   },
 
-  bundles = {},
+  init_options = {
+      bundles = bundles
+  },
 }
 
-vim.list_extend(config.bundles, spring.java_extensions())
 
 return {
     name = "jdtls",
