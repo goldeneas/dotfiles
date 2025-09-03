@@ -1,3 +1,5 @@
+local api = require("api.api")
+
 local M = {}
 
 M.hover_with_rounded = function()
@@ -42,6 +44,11 @@ end
 
 M.goto_window_bottom = function()
     vim.cmd("normal! L")
+end
+
+M.open_here = function()
+    local dir = vim.fn.expand("%:p:h")
+    vim.ui.open(dir)
 end
 
 -- parameters:
