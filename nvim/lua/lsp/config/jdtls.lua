@@ -56,6 +56,10 @@ local config = {
                 "switchExpression",
             },
         },
+
+        codeGeneration = {
+            insertionLocation = "lastMember",
+        },
     }
   },
 
