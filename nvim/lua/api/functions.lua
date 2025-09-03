@@ -1,5 +1,3 @@
-local api = require("api.api")
-
 local M = {}
 
 M.hover_with_rounded = function()

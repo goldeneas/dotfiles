@@ -36,5 +36,5 @@ vim.opt.termguicolors = true
 -- :h completeopt
 vim.opt.completeopt = menu,menuone,noselect
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "100,120"
 vim.opt.signcolumn = "yes"

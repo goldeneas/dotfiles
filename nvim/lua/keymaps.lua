@@ -1,5 +1,7 @@
 local functions = require("api.functions")
 
+local del = vim.keymap.del
+
 local map = function(mode, keys, func, desc, opts)
 	local default_opts = { noremap = true, silent = true }
     local options = vim.tbl_extend("force", default_opts, opts or {})
@@ -86,6 +88,15 @@ map("n", "N", "Nzzzv", "Search Previous")
 
 -- Remove highlighting from search
 map("n", "<esc>", "<cmd>nohlsearch<cr>", "Remove Search Highlights")
+
+-- Toggleterm
+del("n", "<C-W>d")
+del("n", "<C-W><C-D>")
+
+map({"n", "t"}, "<C-q>", "<cmd>1ToggleTerm<cr>", "Toggle Terminal 1")
+map({"n", "t"}, "<C-w>", "<cmd>2ToggleTerm<cr>", "Toggle Terminal 2")
+map({"n", "t"}, "<C-e>", "<cmd>3ToggleTerm<cr>", "Toggle Terminal 1")
+
 
 -- Sane terminal mode exit
 map("t", "<esc>", "<C-\\><C-n>", "Exit Terminal Mode")
