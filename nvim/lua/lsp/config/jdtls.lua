@@ -35,15 +35,34 @@ local config = {
   -- See `:help vim.fs.root`
   root_dir = vim.fs.root(0, {'gradlew', '.git', 'mvnw'}),
 
+  -- more settings at:
+  -- https://github.com/eclipse-jdtls/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
   settings = {
-    java = {}
+    java = {
+        saveActions = {
+            organizeImports = true,
+            cleanup = true,
+        },
+
+        cleanup = {
+            actionsOnSave = {
+                "qualifyMembers",
+                "qualifyStaticMembers",
+                "addOverride",
+                "addDeprecated",
+                "invertEquals",
+                "instanceofPatternMatch",
+                "lambdaExpression",
+                "switchExpression",
+            },
+        },
+    }
   },
 
   init_options = {
       bundles = bundles
   },
 }
-
 
 return {
     name = "jdtls",
