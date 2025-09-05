@@ -49,6 +49,13 @@ M.open_here = function()
     vim.ui.open(dir)
 end
 
+M.open_cwd = function()
+    local cwd = vim.uv.cwd()
+    if not cwd then return end
+
+    vim.ui.open(cwd)
+end
+
 -- parameters:
 -- opts: table
 -- BUF, width, height, col, row

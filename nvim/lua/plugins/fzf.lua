@@ -50,6 +50,10 @@ return {
             },
         },
 
+        lsp = {
+            previewer = true,
+        },
+
         files = {
             cwd_prompt = true,
         },

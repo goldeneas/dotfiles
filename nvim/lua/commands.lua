@@ -6,3 +6,7 @@ end
 create_command("OpenHere", function ()
     functions.open_here()
 end)
+
+create_command("OpenCwd", function ()
+    functions.open_cwd()
+end)

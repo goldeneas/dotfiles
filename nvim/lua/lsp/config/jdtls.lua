@@ -14,6 +14,9 @@ end
 local bundles = {}
 vim.list_extend(bundles, spring.java_extensions())
 
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+local workspace_dir = vim.fn.stdpath('data') .. '/jdtls-workspace/' .. project_name
+
 local config = {
   cmd = {
       'java',
@@ -28,7 +31,7 @@ local config = {
       '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
       '-jar', vim.fn.glob(jdtls_path .. '/plugins/org.eclipse.equinox.launcher_*.jar'),
       '-configuration', jdtls_path .. '/config_' .. os,
-      '-data', vim.fn.stdpath('data') .. '/jdtls-workspace'
+      '-data', workspace_dir
   },
 
   -- `root_dir` must point to the root of your project.
@@ -47,7 +50,6 @@ local config = {
         cleanup = {
             actionsOnSave = {
                 "qualifyMembers",
-                "qualifyStaticMembers",
                 "addOverride",
                 "addDeprecated",
                 "invertEquals",
