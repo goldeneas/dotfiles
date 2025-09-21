@@ -19,6 +19,14 @@ return {
         },
 
         completion = {
+            trigger = {
+                show_on_backspace_in_keyword = true,
+            },
+
+            keyword = {
+                range = "prefix",
+            },
+
             menu = {
                 border = "rounded",
                 -- scrollbar = false,
@@ -26,7 +34,7 @@ return {
 
                 draw = {
                     padding = 0,
-                    columns = { { "label" }, { "kind_icon" } },
+                    columns = { { "kind_icon", "label", gap = 1 } },
                 }
             },
 
@@ -39,11 +47,12 @@ return {
             },
 
             list = {
-                selection = { auto_insert = true },
+                selection = { preselect = false, auto_insert = false },
             },
 
             ghost_text = {
-                enabled = false,
+                enabled = true,
+                show_without_menu = false,
             },
         },
 
@@ -69,26 +78,29 @@ return {
         -- default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, via `opts_extend`
         sources = {
-            default = { "lsp", "lazydev" },
+            default = { "lsp", "lazydev", "path" },
             providers = {
                 buffer = { enabled = false },
                 snippets = { enabled = false },
+                path = {
+                    opts = {
+                        get_cwd = function(_)
+                            return vim.fn.getcwd()
+                        end,
+                    },
+                },
                 lazydev = {
                     name = "LazyDev",
                     enabled = true,
                     module = "lazydev.integrations.blink",
                     score_offset = 100,  -- make lazydev completions top priority
                 },
-                lsp = {
-                    transform_items = function (_, items)
-                        return vim.tbl_filter(function(item)
-                            local types = require('blink.cmp.types').CompletionItemKind
-                            local kind = item.kind
-                            return kind ~= types.Text and kind ~= types.Snippet
-                        end, items)
-                    end
-                }
             },
+            transform_items = function(_, items)
+                return vim.tbl_filter(function(item)
+                    return item.kind ~= require('blink.cmp.types').CompletionItemKind.Snippet
+                end, items)
+            end,
         }
     }
 }

@@ -75,6 +75,8 @@ map("n", "gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 map("n", "gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
 map({"n", "x"}, "<C-h>", "^", "Goto Line Start")
 map({"n", "x"}, "<C-l>", "g_", "Goto Line End")
+map({"n", "v"}, "H", "B", "Goto preceding space")
+map({"n", "v"}, "L", "E", "Goto following space")
 
 -- DAP
 map("n", "<F5>", "<cmd>DapContinue<cr>", "Dap Continue")
@@ -96,7 +98,6 @@ del("n", "<C-W><C-D>")
 map({"n", "t"}, "<C-q>", "<cmd>1ToggleTerm<cr>", "Toggle Terminal 1")
 map({"n", "t"}, "<C-w>", "<cmd>2ToggleTerm<cr>", "Toggle Terminal 2")
 map({"n", "t"}, "<C-e>", "<cmd>3ToggleTerm<cr>", "Toggle Terminal 1")
-
 
 -- Sane terminal mode exit
 map("t", "<esc>", "<C-\\><C-n>", "Exit Terminal Mode")
