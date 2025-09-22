@@ -22,6 +22,7 @@ require("lazy").setup({
     }
 })
 
+require("lsp.settings")
 require("lsp.loader")
 
 -- for some reason something is changing these highlight
