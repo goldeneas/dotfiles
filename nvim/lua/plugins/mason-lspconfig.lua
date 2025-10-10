@@ -5,6 +5,7 @@ return {
             "jdtls",
             "clangd",
             "lua_ls",
+            "pyright",
         },
     },
     dependencies = {
