@@ -33,8 +33,8 @@ map({ "n", "x" }, "C", '"_C', "Change to void")
 map("x", "p", '"_dP', "Just Paste")
 
 -- Window
-map("n", "<leader>ws", "<cmd>split<cr>", "[S]plit [W]indow Horizontally")
-map("n", "<leader>wS", "<cmd>vsplit<cr>", "[S]plit [W]indow Vertically")
+map("n", "<leader>s", "<cmd>split<cr>", "[S]plit [W]indow Horizontally")
+map("n", "<leader>S", "<cmd>vsplit<cr>", "[S]plit [W]indow Vertically")
 
 -- Cursor Movement
 map("n", "<M-h>", "<cmd>wincmd h<cr>", "Move Cursor to Left Window")
