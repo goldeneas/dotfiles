@@ -13,7 +13,7 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.smartcase = true
 
-vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
 vim.opt.undofile = true
 
 -- Enable highlight group for current line number
