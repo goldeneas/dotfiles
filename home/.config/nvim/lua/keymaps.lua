@@ -1,14 +1,8 @@
 local functions = require("api.functions")
+local api = require("api.api")
 
 local del = vim.keymap.del
-
-local map = function(mode, keys, func, desc, opts)
-	local default_opts = { noremap = true, silent = true }
-    local options = vim.tbl_extend("force", default_opts, opts or {})
-	if desc then options.desc = desc end
-
-	vim.keymap.set(mode, keys, func, options)
-end
+local map = api.map
 
 -- Useful keymaps from nvim
 -- <C-è>, Switches between current and previous buffer
@@ -35,6 +29,7 @@ map("x", "p", '"_dP', "Just Paste")
 -- Window
 map("n", "<leader>s", "<cmd>split<cr>", "[S]plit [W]indow Horizontally")
 map("n", "<leader>S", "<cmd>vsplit<cr>", "[S]plit [W]indow Vertically")
+map("n", "<leader>3", functions.split_three, "Split Window in [3]")
 
 -- Cursor Movement
 map("n", "<M-h>", "<cmd>wincmd h<cr>", "Move Cursor to Left Window")

@@ -56,7 +56,11 @@ M.open_cwd = function()
     vim.ui.open(cwd)
 end
 
--- parameters:
+M.split_three = function()
+    vim.cmd("vsplit")
+    vim.cmd("split")
+end
+
 -- opts: table
 -- BUF, width, height, col, row
 --
