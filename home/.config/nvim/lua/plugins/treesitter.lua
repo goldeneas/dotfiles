@@ -3,16 +3,26 @@ return {
     build = ":TSUpdate",
     config = function()
         local treesitter = require("nvim-treesitter.configs")
+        local fidget = require("fidget")
+
+        local has_treesitter_cli = vim.fn.executable("tree-sitter")
+        local should_auto_install = has_treesitter_cli == 1
+
+        if not has_treesitter_cli then
+            fidget.notify("Consider installing treesitter CLI to autoinstall missing parsers", vim.log.levels.INFO)
+        end
+
         treesitter.setup({
             -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-            ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "java" },
+            -- ensure_installed = { "vim", "vimdoc", "query", "markdown", "markdown_inline", "html",
+            --     "latex", "yaml", "typst", "java", "c", "lua", "rust", "python", "cpp" },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
 
             -- Automatically install missing parsers when entering buffer
             -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-            auto_install = false,
+            auto_install = should_auto_install,
 
             -- List of parsers to ignore installing (or "all")
             ignore_install = {},
