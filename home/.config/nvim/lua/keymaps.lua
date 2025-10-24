@@ -31,10 +31,10 @@ map("n", "<leader>s", "<cmd>split<cr>", "[S]plit [W]indow Horizontally")
 map("n", "<leader>S", "<cmd>vsplit<cr>", "[S]plit [W]indow Vertically")
 map("n", "<leader>3", functions.split_three, "Split Window in [3]")
 
-map("n", "<M-Up>", "<cmd>resize -2<CR>")
-map("n", "<M-Down>", "<cmd>resize +2<CR>")
-map("n", "<M-Left>", "<cmd>vertical resize -2<CR>")
-map("n", "<M-Right>", "<cmd>vertical resize +2<CR>")
+map({"n", "t"}, "<M-Up>", "<cmd>resize -2<CR>")
+map({"n", "t"}, "<M-Down>", "<cmd>resize +2<CR>")
+map({"n", "t"}, "<M-Left>", "<cmd>vertical resize -2<CR>")
+map({"n", "t"}, "<M-Right>", "<cmd>vertical resize +2<CR>")
 
 -- Cursor Movement
 map("n", "<M-h>", "<cmd>wincmd h<cr>", "Move Cursor to Left Window")
