@@ -36,6 +36,9 @@ map({"n", "t"}, "<M-Down>", "<cmd>resize +2<CR>")
 map({"n", "t"}, "<M-Left>", "<cmd>vertical resize -2<CR>")
 map({"n", "t"}, "<M-Right>", "<cmd>vertical resize +2<CR>")
 
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
+
 -- Cursor Movement
 map("n", "<M-h>", "<cmd>wincmd h<cr>", "Move Cursor to Left Window")
 map("n", "<M-j>", "<cmd>wincmd j<cr>", "Move Cursor to Up Window")
