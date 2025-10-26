@@ -58,7 +58,7 @@ map("n", "<F3>", "<cmd>UndotreeToggle<cr>", "Toggle Undotree")
 
 -- LSP/Quickfix
 map("n", "<C-x>", "<cmd>Trouble diagnostics toggle<cr>", "Show Errors Tab")
-map("n", "<C-s>", functions.open_float_rounded, "Local Diagnostics")
+map("n", "<C-s>", functions.toggle_diagnostic_float, "Local Diagnostics")
 map("n", "<C-a>", vim.lsp.buf.code_action, "Code [A]ctions")
 map("n", "K", functions.hover_with_rounded, "Hover Symbol")
 map("n", "<leader>xr", "<cmd>FzfLua lsp_references<cr>", "Show [R]eferences")
