@@ -4,6 +4,7 @@ return {
     opts = {
         progress = {
             ignore_done_already = true,
+            suppress_on_insert = true,
 
             display = {
                 render_limit = 4,
@@ -20,6 +21,7 @@ return {
             window = {
                 align = "top",
                 border = "single",
+                max_width = 0,
             }
         }
     }
