@@ -14,10 +14,6 @@ return {
                     return msg.done and "Completed ->" or "Working ->"
                 end
             },
-
-            ignore = {
-                "jdtls",
-            },
         },
 
         notification = {
