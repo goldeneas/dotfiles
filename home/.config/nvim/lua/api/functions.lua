@@ -34,8 +34,8 @@ M.goto_prev_error = function()
     })
 end
 
-M.inc_rename = function()
-    return ":IncRename " .. vim.fn.expand("<cword>")
+M.rename = function()
+    require("live-rename").rename({ cursorpos=0 })
 end
 
 M.qf_toggle = function()

@@ -68,8 +68,8 @@ map("n", "<leader>xr", "<cmd>FzfLua lsp_references<cr>", "Show [R]eferences")
 -- Quickfix
 map("n", "<F4>", functions.qf_toggle, "Toggle Quickfix")
 
--- IncRename
-map("n", "<leader>r", functions.inc_rename, "[R]ename", { expr = true })
+-- Rename
+map("n", "<leader>r", functions.rename, "[R]ename")
 
 -- Goto
 map("n", "f", "<Plug>(leap)", "Leap")
