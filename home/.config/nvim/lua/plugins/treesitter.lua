@@ -3,14 +3,12 @@ return {
     build = ":TSUpdate",
     config = function()
         local treesitter = require("nvim-treesitter.configs")
-        local fidget = require("fidget")
 
         local has_treesitter_cli = vim.fn.executable("tree-sitter")
         local should_auto_install = has_treesitter_cli == 1
 
         if not has_treesitter_cli then
-            print("HI")
-            fidget.notify("Consider installing treesitter CLI to autoinstall missing parsers", vim.log.levels.INFO)
+            vim.notify("Consider installing treesitter CLI to autoinstall missing parsers", vim.log.levels.INFO)
         end
 
         treesitter.setup({
