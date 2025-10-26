@@ -53,7 +53,7 @@ local config = {
                 "addOverride",
                 "addDeprecated",
                 "invertEquals",
-                "instanceofPatternMatch",
+                -- "instanceofPatternMatch", disabled: only supported on java16+
                 "lambdaExpression",
                 "switchExpression",
             },

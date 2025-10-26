@@ -57,9 +57,9 @@ map("n", "-", "<cmd>Oil<cr>", "[F]ind [D]irectory")
 map("n", "<F3>", "<cmd>UndotreeToggle<cr>", "Toggle Undotree")
 
 -- LSP/Quickfix
-map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", "Show Errors Tab")
-map("n", "<leader>xl", functions.open_float_rounded, "Show [L]ocal Error")
-map("n", "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ctions")
+map("n", "<C-x>", "<cmd>Trouble diagnostics toggle<cr>", "Show Errors Tab")
+map("n", "<C-s>", functions.open_float_rounded, "Local Diagnostics")
+map("n", "<C-a>", vim.lsp.buf.code_action, "Code [A]ctions")
 map("n", "K", functions.hover_with_rounded, "Hover Symbol")
 map("n", "<leader>xr", "<cmd>FzfLua lsp_references<cr>", "Show [R]eferences")
 -- map("n", "<C-k>", functions.goto_next_error, "Goto Next Error")

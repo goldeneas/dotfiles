@@ -9,13 +9,14 @@ return {
         local should_auto_install = has_treesitter_cli == 1
 
         if not has_treesitter_cli then
+            print("HI")
             fidget.notify("Consider installing treesitter CLI to autoinstall missing parsers", vim.log.levels.INFO)
         end
 
         treesitter.setup({
             -- A list of parser names, or "all" (the listed parsers MUST always be installed)
             ensure_installed = { "vim", "vimdoc", "query", "markdown", "markdown_inline", "html",
-                "latex", "yaml", "typst", "java", "c", "lua", "rust", "python", "cpp" },
+                "yaml", "typst", "java", "c", "lua", "rust", "python", "cpp" },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
