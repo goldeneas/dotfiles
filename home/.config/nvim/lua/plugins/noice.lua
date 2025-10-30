@@ -18,6 +18,13 @@ return {
             lsp_doc_border = true,
         },
 
+        -- hover = {
+        --     enabled = false,
+        -- },
+        -- signature = {
+        --     enabled = false,
+        -- },
+
         cmdline = {
             view = "cmdline",
             format = {

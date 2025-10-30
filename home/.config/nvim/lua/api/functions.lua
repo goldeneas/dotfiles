@@ -1,3 +1,5 @@
+local Terminal = require('toggleterm.terminal').Terminal
+
 local M = {}
 
 M.hover_with_rounded = function()
@@ -108,6 +110,11 @@ M.open_float = function(opts)
     local win = vim.api.nvim_open_win(buf, true, win_config)
 
     return { win = win, buf = buf }
+end
+
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+M.toggle_lazygit = function()
+    lazygit:toggle()
 end
 
 return M

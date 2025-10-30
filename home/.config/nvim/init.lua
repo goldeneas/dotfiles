@@ -1,6 +1,4 @@
 require("settings")
-require("keymaps")
-require("commands")
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -21,6 +19,9 @@ require("lazy").setup({
         { import = "plugins", }
     }
 })
+
+require("keymaps")
+require("commands")
 
 require("lsp.settings")
 require("lsp.loader")

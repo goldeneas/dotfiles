@@ -101,7 +101,9 @@ del("n", "<C-W><C-D>")
 
 map({"n", "t"}, "<C-q>", "<cmd>1ToggleTerm<cr>", "Toggle Terminal 1")
 map({"n", "t"}, "<C-w>", "<cmd>2ToggleTerm<cr>", "Toggle Terminal 2")
-map({"n", "t"}, "<C-e>", "<cmd>3ToggleTerm<cr>", "Toggle Terminal 1")
+map({"n", "t"}, "<C-e>", "<cmd>3ToggleTerm<cr>", "Toggle Terminal 3")
+map({"n", "t"}, "<C-r>", "<cmd>4ToggleTerm<cr>", "Toggle Terminal 4")
+map({"n", "t"}, "<C-g>", functions.toggle_lazygit, "Toggle Lazygit")
 
 -- Sane terminal mode exit
 map("t", "<esc>", "<C-\\><C-n>", "Exit Terminal Mode")
