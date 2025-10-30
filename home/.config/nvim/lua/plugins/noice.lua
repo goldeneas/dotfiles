@@ -8,6 +8,14 @@ return {
                 ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
                 ["vim.lsp.util.stylize_markdown"] = true,
             },
+
+            signature = {
+                enabled = false,
+            },
+
+            hover = {
+                enabled = true,
+            }
         },
         -- you can enable a preset for easier configuration
         presets = {
@@ -17,13 +25,6 @@ return {
             inc_rename = true, -- enables an input dialog for inc-rename.nvim
             lsp_doc_border = true,
         },
-
-        -- hover = {
-        --     enabled = false,
-        -- },
-        -- signature = {
-        --     enabled = false,
-        -- },
 
         cmdline = {
             view = "cmdline",
