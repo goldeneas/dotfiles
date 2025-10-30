@@ -4,10 +4,17 @@ local cwd_relative_path = function()
   return rel_path ~= '' and rel_path or '.'
 end
 
+local diagnostics_component = function()
+    return {
+        "diagnostics",
+        symbols = {error = 'E', warn = 'W', info = 'I', hint = 'H'},
+    }
+end
+
 local filename_component = function()
     return {
         "filename",
-        padding = { left = 1, right = 0 },
+        padding = { left = 1, right = 1 },
     }
 end
 
@@ -45,10 +52,10 @@ return {
             section_separators = "",
         },
         sections = {
-            lualine_b = { branch_component(), "diagnostics" },
-            lualine_c = { filename_component(), lsp_status_component()},
-            lualine_x = {  cwd_relative_path },
-            lualine_y = { "" },
+            lualine_b = { branch_component(), diagnostics_component() },
+            lualine_c = { lsp_status_component()},
+            lualine_x = { cwd_relative_path },
+            lualine_y = { filename_component() },
             lualine_z = { "" },
         }
     }
