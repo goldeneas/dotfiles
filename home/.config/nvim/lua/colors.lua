@@ -25,3 +25,6 @@ vim.cmd("hi! ColorColumn ctermbg=235 guibg=#2a2a2a")
 
 -- snippet arg highlighting
 vim.cmd("hi! link SnippetTabstop Normal")
+
+-- signature curr parameter highlight
+vim.cmd("hi! LspSignatureActiveParameter gui=bold,nocombine guifg=#282828 guibg=#fabd2f")
