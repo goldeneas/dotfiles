@@ -22,6 +22,7 @@ require("lazy").setup({
 
 require("keymaps")
 require("commands")
+require("filetype")
 
 require("lsp.settings")
 require("lsp.loader")
