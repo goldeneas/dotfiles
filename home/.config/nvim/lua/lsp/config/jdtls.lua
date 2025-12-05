@@ -1,11 +1,11 @@
-local api = require("api.api")
+local utils = require("utils")
 local spring = require("spring_boot")
 
 local mason_path = vim.fn.stdpath('data') .. '/mason'
 local jdtls_path = mason_path .. '/packages/jdtls'
 local lombok_path = jdtls_path .. '/lombok.jar'
 
-local os = api.get_os()
+local os = utils.get_os()
 
 if not os then
   vim.notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)

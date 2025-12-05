@@ -1,12 +1,12 @@
-local functions = require("api.functions")
+local utils = require("utils")
 local create_command = function(name, func, opts)
     vim.api.nvim_create_user_command(name, func, opts or {})
 end
 
 create_command("OpenHere", function ()
-    functions.open_here()
+    utils.open_here()
 end)
 
 create_command("OpenCwd", function ()
-    functions.open_cwd()
+    utils.open_cwd()
 end)

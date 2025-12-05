@@ -1,8 +1,7 @@
-local functions = require("api.functions")
-local api = require("api.api")
+local utils = require("utils")
 
 local del = vim.keymap.del
-local map = api.map
+local map = utils.map
 
 -- Useful keymaps from nvim
 -- <C-è>, Switches between current and previous buffer
@@ -29,7 +28,7 @@ map("x", "p", '"_dP', "Just Paste")
 -- Window
 map("n", "<leader>s", "<cmd>split<cr>", "[S]plit [W]indow Horizontally")
 map("n", "<leader>S", "<cmd>vsplit<cr>", "[S]plit [W]indow Vertically")
-map("n", "<leader>3", functions.split_three, "Split Window in [3]")
+map("n", "<leader>3", utils.split_three, "Split Window in [3]")
 
 map({"n", "t"}, "<M-Up>", "<cmd>resize -2<CR>")
 map({"n", "t"}, "<M-Down>", "<cmd>resize +2<CR>")
@@ -57,16 +56,16 @@ map("n", "-", "<cmd>Oil<cr>", "[F]ind [D]irectory")
 
 -- LSP/Quickfix
 map("n", "<C-x>", "<cmd>Trouble diagnostics toggle<cr>", "Show Errors Tab")
-map("n", "<C-s>", functions.toggle_diagnostic_float, "Local Diagnostics")
+map("n", "<C-s>", utils.toggle_diagnostic_float, "Local Diagnostics")
 map("n", "<C-a>", vim.lsp.buf.code_action, "Code [A]ctions")
-map("n", "K", functions.hover_with_rounded, "Hover Symbol")
+map("n", "K", utils.hover_with_rounded, "Hover Symbol")
 map("n", "<leader>xr", "<cmd>FzfLua lsp_references<cr>", "Show [R]eferences")
--- map("n", "<C-k>", functions.goto_next_error, "Goto Next Error")
--- map("n", "<C-j>", functions.goto_prev_error, "Goto Prev Error")
-map("n", "<F4>", functions.qf_toggle, "Toggle Quickfix")
+-- map("n", "<C-k>", utils.goto_next_error, "Goto Next Error")
+-- map("n", "<C-j>", utils.goto_prev_error, "Goto Prev Error")
+map("n", "<F4>", utils.qf_toggle, "Toggle Quickfix")
 
 -- Rename
-map("n", "<leader>r", functions.rename, "[R]ename")
+map("n", "<leader>r", utils.rename, "[R]ename")
 
 -- Goto
 map("n", "f", "<Plug>(leap)", "Leap")
@@ -93,7 +92,7 @@ map("n", "N", "Nzzzv", "Search Previous")
 map("n", "<esc>", "<cmd>nohlsearch<cr>", "Remove Search Highlights")
 
 -- Save and quit
-map("n", "ZZ", functions.save_and_quit, "Save and Quit")
+map("n", "ZZ", utils.save_and_quit, "Save and Quit")
 
 -- Toggleterm
 del("n", "<C-W>d")
@@ -102,7 +101,7 @@ del("n", "<C-W><C-D>")
 map({"n", "t"}, "<C-q>", "<cmd>1ToggleTerm<cr>", "Toggle Terminal 1")
 map({"n", "t"}, "<C-w>", "<cmd>2ToggleTerm<cr>", "Toggle Terminal 2")
 map({"n", "t"}, "<C-e>", "<cmd>3ToggleTerm<cr>", "Toggle Terminal 3")
-map({"n", "t"}, "<C-g>", functions.toggle_lazygit, "Toggle Lazygit")
+map({"n", "t"}, "<C-g>", utils.toggle_lazygit, "Toggle Lazygit")
 
 -- Sane terminal mode exit
 map("t", "<esc>", "<C-\\><C-n>", "Exit Terminal Mode")
