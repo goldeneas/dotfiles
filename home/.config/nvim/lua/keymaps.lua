@@ -54,7 +54,6 @@ map("n", "<leader>fr", "<cmd>FzfLua oldfiles<cr>", "[F]ind [R]ecent File")
 map("n", "<leader>fs", "<cmd>FzfLua live_grep<cr>", "[F]ind [S]tring")
 map("n", "<leader>fg", "<cmd>FzfLua builtin<cr>", "[F]ind [G]lobal")
 map("n", "-", "<cmd>Oil<cr>", "[F]ind [D]irectory")
-map("n", "<F3>", "<cmd>UndotreeToggle<cr>", "Toggle Undotree")
 
 -- LSP/Quickfix
 map("n", "<C-x>", "<cmd>Trouble diagnostics toggle<cr>", "Show Errors Tab")
@@ -64,8 +63,6 @@ map("n", "K", functions.hover_with_rounded, "Hover Symbol")
 map("n", "<leader>xr", "<cmd>FzfLua lsp_references<cr>", "Show [R]eferences")
 -- map("n", "<C-k>", functions.goto_next_error, "Goto Next Error")
 -- map("n", "<C-j>", functions.goto_prev_error, "Goto Prev Error")
-
--- Quickfix
 map("n", "<F4>", functions.qf_toggle, "Toggle Quickfix")
 
 -- Rename
@@ -94,6 +91,9 @@ map("n", "N", "Nzzzv", "Search Previous")
 
 -- Remove highlighting from search
 map("n", "<esc>", "<cmd>nohlsearch<cr>", "Remove Search Highlights")
+
+-- Save and quit
+map("n", "ZZ", functions.save_and_quit, "Save and Quit")
 
 -- Toggleterm
 del("n", "<C-W>d")

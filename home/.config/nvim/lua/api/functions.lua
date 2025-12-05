@@ -117,4 +117,9 @@ M.toggle_lazygit = function()
     lazygit:toggle()
 end
 
+M.save_and_quit = function()
+    vim.api.nvim_command(":wa")
+    vim.api.nvim_command(":qa")
+end
+
 return M
