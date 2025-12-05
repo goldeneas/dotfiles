@@ -18,6 +18,10 @@ return {
             ["<Down>"] = {},
         },
 
+        fuzzy = { 
+            implementation = "prefer_rust_with_warning"
+        },
+
         completion = {
             trigger = {
                 show_on_backspace_in_keyword = true,
