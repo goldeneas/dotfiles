@@ -24,7 +24,7 @@ return {
             },
 
             keyword = {
-                range = "prefix",
+                range = "full",
             },
 
             menu = {
@@ -35,7 +35,9 @@ return {
                 draw = {
                     padding = 0,
                     columns = { { "kind_icon", "label", gap = 1 } },
-                }
+                },
+
+                max_height = 15,
             },
 
             documentation = {
