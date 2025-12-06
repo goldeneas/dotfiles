@@ -52,7 +52,7 @@ map("n", "<leader>ff", "<cmd>FzfLua files<cr>", "[F]ind [F]ile")
 map("n", "<leader>fr", "<cmd>FzfLua oldfiles<cr>", "[F]ind [R]ecent File")
 map("n", "<leader>fs", "<cmd>FzfLua live_grep<cr>", "[F]ind [S]tring")
 map("n", "<leader>fg", "<cmd>FzfLua builtin<cr>", "[F]ind [G]lobal")
-map("n", "-", "<cmd>Oil<cr>", "[F]ind [D]irectory")
+map("n", "-", utils.toggle_oil, "Open Oil")
 
 -- LSP/Quickfix
 map("n", "<C-x>", "<cmd>Trouble diagnostics toggle<cr>", "Show Errors Tab")

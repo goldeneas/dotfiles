@@ -1,3 +1,5 @@
+local oil = require("oil")
+
 local M = {}
 
 M.win_is_qf_or_loc = function(win_id)
@@ -66,6 +68,10 @@ M.open_float = function(opts)
     local win = vim.api.nvim_open_win(buf, true, win_config)
 
     return { win = win, buf = buf }
+end
+
+M.toggle_oil = function()
+    oil.open_float()
 end
 
 return M
