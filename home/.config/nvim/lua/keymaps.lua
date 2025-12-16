@@ -91,9 +91,6 @@ map("n", "N", "Nzzzv", "Search Previous")
 -- Remove highlighting from search
 map("n", "<esc>", "<cmd>nohlsearch<cr>", "Remove Search Highlights")
 
--- Save and quit
-map("n", "ZZ", utils.save_and_quit, "Save and Quit")
-
 -- Toggleterm
 del("n", "<C-W>d")
 del("n", "<C-W><C-D>")
