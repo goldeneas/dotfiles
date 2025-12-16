@@ -6,7 +6,7 @@ return {
         local ts = require("nvim-treesitter")
         ts.install({
             "rust", "c", "python", "html", "javascript", "css",
-            "zig", "markdown",
+            "zig", "markdown", "java",
         })
 
         vim.api.nvim_create_autocmd("FileType", {
