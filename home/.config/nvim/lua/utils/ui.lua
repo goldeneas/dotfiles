@@ -4,11 +4,11 @@ local neoscroll = require("neoscroll")
 local M = {}
 
 M.scroll_up = function()
-    neoscroll.scroll(-10, { move_cursor = true, duration = 30 })
+    neoscroll.scroll(-10, { move_cursor = true, duration = 50 })
 end
 
 M.scroll_down = function()
-    neoscroll.scroll(10, { move_cursor = true, duration = 30 })
+    neoscroll.scroll(10, { move_cursor = true, duration = 50 })
 end
 
 M.win_is_qf_or_loc = function(win_id)
