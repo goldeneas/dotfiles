@@ -44,8 +44,8 @@ map("n", "<M-j>", "<cmd>wincmd j<cr>", "Move Cursor to Up Window")
 map("n", "<M-k>", "<cmd>wincmd k<cr>", "Move Cursor to Down Window")
 map("n", "<M-l>", "<cmd>wincmd l<cr>", "Move Cursor to Right Window")
 
-map("n", "<C-j>", utils.scroll_down, "Scroll down")
-map("n", "<C-k>", utils.scroll_up, "Scroll up")
+map("n", "<C-j>", "5<C-e>", "Scroll down")
+map("n", "<C-k>", "5<C-y>", "Scroll up")
 
 -- Directories
 map("n", "<leader>ff", "<cmd>FzfLua files<cr>", "[F]ind [F]ile")
