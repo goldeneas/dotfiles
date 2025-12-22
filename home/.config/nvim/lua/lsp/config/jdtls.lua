@@ -8,7 +8,7 @@ local lombok_path = jdtls_path .. '/lombok.jar'
 local os = utils.get_os()
 
 if not os then
-  vim.notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
+    vim.notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
 end
 
 local bundles = {}
@@ -18,56 +18,56 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = vim.fn.stdpath('data') .. '/jdtls-workspace/' .. project_name
 
 local config = {
-  cmd = {
-      'java',
-      '-javaagent:' .. lombok_path,
-      '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-      '-Dosgi.bundles.defaultStartLevel=4',
-      '-Declipse.product=org.eclipse.jdt.ls.core.product',
-      '-Dlog.level=ALL',
-      '-Xmx1g',
-      '--add-modules=ALL-SYSTEM',
-      '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-      '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-      '-jar', vim.fn.glob(jdtls_path .. '/plugins/org.eclipse.equinox.launcher_*.jar'),
-      '-configuration', jdtls_path .. '/config_' .. os,
-      '-data', workspace_dir
-  },
+    cmd = {
+        'java',
+        '-javaagent:' .. lombok_path,
+        '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+        '-Dosgi.bundles.defaultStartLevel=4',
+        '-Declipse.product=org.eclipse.jdt.ls.core.product',
+        '-Dlog.level=ALL',
+        '-Xmx1g',
+        '--add-modules=ALL-SYSTEM',
+        '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+        '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+        '-jar', vim.fn.glob(jdtls_path .. '/plugins/org.eclipse.equinox.launcher_*.jar'),
+        '-configuration', jdtls_path .. '/config_' .. os,
+        '-data', workspace_dir
+    },
 
-  -- `root_dir` must point to the root of your project.
-  -- See `:help vim.fs.root`
-  root_dir = vim.fs.root(0, {'gradlew', '.git', 'mvnw', 'pom.xml', 'build.gradle'}),
+    -- `root_dir` must point to the root of your project.
+    -- See `:help vim.fs.root`
+    root_dir = vim.fs.root(0, { 'gradlew', '.git', 'mvnw', 'pom.xml', 'build.gradle' }),
 
-  -- more settings at:
-  -- https://github.com/eclipse-jdtls/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
-  settings = {
-    java = {
-        saveActions = {
-            organizeImports = true,
-            cleanup = true,
-        },
-
-        cleanup = {
-            actionsOnSave = {
-                "qualifyMembers",
-                "addOverride",
-                "addDeprecated",
-                "invertEquals",
-                -- "instanceofPatternMatch", disabled: only supported on java16+
-                "lambdaExpression",
-                "switchExpression",
+    -- more settings at:
+    -- https://github.com/eclipse-jdtls/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+    settings = {
+        java = {
+            saveActions = {
+                organizeImports = true,
+                cleanup = true,
             },
-        },
 
-        codeGeneration = {
-            insertionLocation = "lastMember",
-        },
-    }
-  },
+            cleanup = {
+                actionsOnSave = {
+                    "addOverride",
+                    "addDeprecated",
+                    -- "invertEquals",
+                    -- "qualifyMembers",
+                    -- "instanceofPatternMatch", disabled: only supported on java16+
+                    -- "lambdaExpression",
+                    -- "switchExpression",
+                },
+            },
 
-  init_options = {
-      bundles = bundles
-  },
+            codeGeneration = {
+                insertionLocation = "lastMember",
+            },
+        }
+    },
+
+    init_options = {
+        bundles = bundles
+    },
 }
 
 return {
