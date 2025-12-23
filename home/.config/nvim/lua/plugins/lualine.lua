@@ -1,14 +1,21 @@
+local utils = require("utils")
+
 local cwd_relative_path = function()
-  local full_path = vim.fn.expand('%:p:h') -- directory of current file
-  local rel_path = vim.fn.fnamemodify(full_path, ':.' ) -- relative to cwd
-  return rel_path ~= '' and rel_path or '.'
+    local full_path = vim.fn.expand('%:p:h')             -- directory of current file
+    local rel_path = vim.fn.fnamemodify(full_path, ':.') -- relative to cwd
+    return rel_path ~= '' and rel_path or '.'
 end
 
 local diagnostics_component = function()
     return {
         "diagnostics",
-        symbols = {error = 'E', warn = 'W', info = 'I', hint = 'H'},
+        symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' },
     }
+end
+
+local auto_format_component = function()
+    local is_auto_format = utils.is_auto_format()
+    return is_auto_format and "[F]" or ""
 end
 
 local filename_component = function()
@@ -47,13 +54,13 @@ end
 return {
     'nvim-lualine/lualine.nvim',
     opts = {
-        options ={
+        options = {
             component_separators = "",
             section_separators = "",
         },
         sections = {
             lualine_b = { branch_component(), diagnostics_component() },
-            lualine_c = { lsp_status_component()},
+            lualine_c = { auto_format_component(), lsp_status_component() },
             lualine_x = { cwd_relative_path },
             lualine_y = { filename_component() },
             lualine_z = { "" },

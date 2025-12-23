@@ -1,5 +1,14 @@
 local M = {}
 
+local format_on_save = false
+M.toggle_format_on_save = function()
+    format_on_save = not format_on_save
+end
+
+M.is_format_on_save = function()
+    return format_on_save
+end
+
 M.hover_with_rounded = function()
     vim.lsp.buf.hover({ border = "rounded" })
 end
