@@ -1,6 +1,6 @@
 local M = {}
 
-local format_on_save = false
+local format_on_save = true
 M.toggle_format_on_save = function()
     format_on_save = not format_on_save
 end

@@ -1,5 +1,3 @@
-local oil = require("oil")
-
 local M = {}
 
 M.win_is_qf_or_loc = function(win_id)
@@ -71,7 +69,7 @@ M.open_float = function(opts)
 end
 
 M.toggle_oil = function()
-    oil.open_float()
+    require("oil").open_float()
 end
 
 return M

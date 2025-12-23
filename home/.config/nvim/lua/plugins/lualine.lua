@@ -14,8 +14,8 @@ local diagnostics_component = function()
 end
 
 local auto_format_component = function()
-    local is_auto_format = utils.is_auto_format()
-    return is_auto_format and "[F]" or ""
+    local is_enabled = utils.is_format_on_save()
+    return is_enabled and "[F]" or ""
 end
 
 local filename_component = function()
@@ -60,7 +60,13 @@ return {
         },
         sections = {
             lualine_b = { branch_component(), diagnostics_component() },
-            lualine_c = { auto_format_component(), lsp_status_component() },
+            lualine_c = {
+                {
+                    auto_format_component,
+                    padding = { left = 1 }
+                },
+                lsp_status_component()
+            },
             lualine_x = { cwd_relative_path },
             lualine_y = { filename_component() },
             lualine_z = { "" },
