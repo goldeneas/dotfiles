@@ -79,12 +79,6 @@ map({ "n", "x" }, "<C-l>", "g_", "Goto Line End")
 map({ "n", "v" }, "H", "B", "Goto preceding space")
 map({ "n", "v" }, "L", "E", "Goto following space")
 
--- DAP
-map("n", "<F5>", "<cmd>DapContinue<cr>", "Dap Continue")
-map("n", "<F10>", "<cmd>DapStepOver<cr>", "Dap StepOver")
-map("n", "<F11>", "<cmd>DapStepInto<cr>", "Dap StepInto")
-map("n", "<leader>b", "<cmd>DapToggleBreakpoint<cr>", "Dap Toggle Breakpoint")
-
 -- Keep current search item at center of window
 map("n", "n", "nzzzv", "Search Next")
 map("n", "N", "Nzzzv", "Search Previous")

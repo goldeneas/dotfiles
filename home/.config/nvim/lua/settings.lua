@@ -1,7 +1,7 @@
 vim.g.mapleader = ","
 
 vim.opt.guicursor = {
-  'i:block-Cursor/lCursor-blinkwait500-blinkon500-blinkoff500',
+    'i:block-Cursor/lCursor-blinkwait500-blinkon500-blinkoff500',
 }
 
 vim.opt.tabstop = 4
@@ -34,7 +34,7 @@ vim.opt.termguicolors = true
 
 -- Disables menus auto selecting first option
 -- :h completeopt
-vim.opt.completeopt = menu,menuone,noselect
+vim.opt.completeopt = menu, menuone, noselect
 
 vim.opt.colorcolumn = "100,120"
 vim.opt.signcolumn = "yes"

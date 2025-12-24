@@ -18,11 +18,16 @@ local auto_format_component = function()
     if not is_enabled then return "" end
 
     local formatters = require("conform").list_formatters_for_buffer()
-    if #formatters == 0 then
-        return "[F]"
+    if not (#formatters == 0) then
+        return string.format("[F: %s]", table.concat(formatters, " | "))
     end
 
-    return string.format("[F: %s]", table.concat(formatters, " "))
+    local is_lsp_attached = #vim.lsp.get_clients({ bufnr = 0 }) > 0
+    if is_lsp_attached then
+        return "[F: lsp]"
+    end
+
+    return "[F]"
 end
 
 local filename_component = function()
