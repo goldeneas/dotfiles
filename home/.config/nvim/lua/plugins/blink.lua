@@ -8,6 +8,8 @@ return {
     -- use a release tag to download pre-built binaries
     version = "1.*",
 
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
         keymap = {
             ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
@@ -18,7 +20,7 @@ return {
             ["<Down>"] = {},
         },
 
-        fuzzy = { 
+        fuzzy = {
             implementation = "prefer_rust_with_warning"
         },
 
@@ -99,7 +101,7 @@ return {
                     name = "LazyDev",
                     enabled = true,
                     module = "lazydev.integrations.blink",
-                    score_offset = 100,  -- make lazydev completions top priority
+                    score_offset = 100, -- make lazydev completions top priority
                 },
             },
             transform_items = function(_, items)
