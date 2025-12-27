@@ -6,6 +6,7 @@ local modules = {
     require("utils.ui"),
     require("utils.system"),
     require("utils.git"),
+    require("utils.tools")
 }
 
 -- merge in a single M module
