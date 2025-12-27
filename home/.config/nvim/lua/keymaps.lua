@@ -63,7 +63,7 @@ map("n", "<leader>xr", "<cmd>FzfLua lsp_references<cr>", "Show [R]eferences")
 -- map("n", "<C-k>", utils.goto_next_error, "Goto Next Error")
 -- map("n", "<C-j>", utils.goto_prev_error, "Goto Prev Error")
 map("n", "<F4>", utils.qf_toggle, "Toggle Quickfix")
-map("n", "<C-f>", utils.toggle_format_on_save, "Format Buffer")
+map("n", "<M-f>", utils.toggle_format_on_save, "Format Buffer")
 
 -- Rename
 map("n", "<leader>r", utils.rename, "[R]ename")

@@ -27,7 +27,17 @@ local auto_format_component = function()
         return "[F: lsp]"
     end
 
-    return "[F]"
+    return "[F: none]"
+end
+
+local linter_component = function()
+    local ft = vim.bo.filetype
+    local linters = require("lint").linters_by_ft[ft] or {}
+    if (#linters == 0) then
+        return "[L: none]"
+    end
+
+    return string.format("[L: %s]", table.concat(linters, " | "))
 end
 
 local filename_component = function()
@@ -52,7 +62,7 @@ local lsp_status_component = function()
             if str == "" then
                 return ""
             end
-            return "[" .. str .. "]"
+            return "[S: " .. str .. "]"
         end,
     }
 end
@@ -77,6 +87,10 @@ return {
             lualine_c = {
                 {
                     auto_format_component,
+                    padding = { left = 1 },
+                },
+                {
+                    linter_component,
                     padding = { left = 1 },
                 },
                 lsp_status_component(),

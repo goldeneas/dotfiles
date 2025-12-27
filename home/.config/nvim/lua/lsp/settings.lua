@@ -20,3 +20,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         utils.format()
     end,
 })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
+    callback = function()
+        require("lint").try_lint()
+    end,
+})
