@@ -1,3 +1,4 @@
+local utils = require("utils")
 local blink = require("blink.cmp")
 
 -- remove code autocomplete for arguments (and snippets)

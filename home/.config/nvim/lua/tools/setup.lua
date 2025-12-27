@@ -13,12 +13,4 @@ vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
     end,
 })
 
--- formatters
-utils.add_formatter("go", "goimports")
-utils.add_formatter("html", "superhtml")
-
--- linters
-utils.add_linter("go", "golangci-lint")
-
--- ensure_installed
-utils.add_ensure_installed("jdtls")
+utils.install_all()

@@ -1,5 +1,4 @@
 require("settings")
-require("lsp.tools")
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -31,7 +30,8 @@ require("filetype")
 
 require("lsp.settings")
 require("lsp.loader")
-require("lsp.installer")
+
+require("tools.setup")
 
 -- for some reason something is changing these highlight
 -- this is required at last to be sure that those get overridden correctly

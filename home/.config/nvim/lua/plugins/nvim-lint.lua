@@ -1,9 +1,9 @@
+local ensure_installed = require("config.ensure_installed")
+
 return {
     "mfussenegger/nvim-lint",
     config = function()
         local lint = require("lint")
-        local utils = require("utils")
-
-        lint.linters_by_ft = utils.get_linters_by_ft()
+        lint.linters_by_ft = ensure_installed.linters
     end
 }
