@@ -50,8 +50,6 @@ M.install_all_ts_parsers = function()
     local tools = {}
     collect_tools(tools, ensure_installed.parsers)
 
-    print(vim.inspect(tools))
-
     ts.install(tools)
 end
 

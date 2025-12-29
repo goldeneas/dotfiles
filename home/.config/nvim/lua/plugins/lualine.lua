@@ -1,10 +1,41 @@
 local utils = require("utils")
 
+-- FUNCTIONS
+
+local function mode()
+    -- Map of modes to their respective shorthand indicators
+    local mode_map = {
+        n = 'N',      -- Normal mode
+        i = 'I',      -- Insert mode
+        v = 'V',      -- Visual mode
+        [''] = 'V',  -- Visual block mode
+        V = 'V',      -- Visual line mode
+        c = 'C',      -- Command-line mode
+        no = 'N',     -- NInsert mode
+        s = 'S',      -- Select mode
+        S = 'S',      -- Select line mode
+        ic = 'I',     -- Insert mode (completion)
+        R = 'R',      -- Replace mode
+        Rv = 'R',     -- Virtual Replace mode
+        cv = 'C',     -- Command-line mode
+        ce = 'C',     -- Ex mode
+        r = 'R',      -- Prompt mode
+        rm = 'M',     -- More mode
+        ['r?'] = '?', -- Confirm mode
+        ['!'] = '!',  -- Shell mode
+        t = 'T',      -- Terminal mode
+    }
+    -- Return the mode shorthand or [UNKNOWN] if no match
+    return mode_map[vim.fn.mode()] or '[UNKNOWN]'
+end
+
 local cwd_relative_path = function()
     local full_path = vim.fn.expand("%:p:h")             -- directory of current file
     local rel_path = vim.fn.fnamemodify(full_path, ":.") -- relative to cwd
     return rel_path ~= "" and rel_path or "."
 end
+
+-- COMPONENTS
 
 local diagnostics_component = function()
     return {
@@ -83,6 +114,12 @@ return {
             section_separators = "",
         },
         sections = {
+            lualine_a = {
+                {
+                    mode,
+                    padding = { left = 1, right = 1 },
+                },
+            },
             lualine_b = { branch_component(), diagnostics_component() },
             lualine_c = {
                 {
