@@ -16,35 +16,18 @@ local function collect_tools(tool_list, source_table)
     end
 end
 
-M.get_all_tools = function(ensure_installed)
-    local tools = {}
+M.install_all_mason_tools = function()
+    local registry = require("mason-registry")
+    local ensure_installed = require("config.ensure_installed")
 
+    local tools = {}
     collect_tools(tools, ensure_installed.lsp)
     collect_tools(tools, ensure_installed.formatters)
     collect_tools(tools, ensure_installed.linters)
     collect_tools(tools, ensure_installed.dap)
 
-    local seen = {}
-    local unique_tools = {}
-
-    for _, tool in ipairs(tools) do
-        if not seen[tool] then
-            seen[tool] = true
-            table.insert(unique_tools, tool)
-        end
-    end
-
-    return unique_tools
-end
-
-M.install_all = function()
-    local registry = require("mason-registry")
-    local ensure_installed = require("config.ensure_installed")
-
-    local tools = M.get_all_tools(ensure_installed)
     local aliases = ensure_installed.mason_aliases or {}
 
-    -- filter the list to only include packages NOT installed
     local to_install = {}
     for _, tool_name in ipairs(tools) do
         local mason_package_name = aliases[tool_name] or tool_name
@@ -58,6 +41,23 @@ M.install_all = function()
         local packages_str = table.concat(to_install, " ")
         vim.cmd("MasonInstall " .. packages_str)
     end
+end
+
+M.install_all_ts_parsers = function()
+    local ts = require("nvim-treesitter")
+    local ensure_installed = require("config.ensure_installed")
+
+    local tools = {}
+    collect_tools(tools, ensure_installed.parsers)
+
+    print(vim.inspect(tools))
+
+    ts.install(tools)
+end
+
+M.install_all = function()
+    M.install_all_mason_tools()
+    M.install_all_ts_parsers()
 end
 
 return M

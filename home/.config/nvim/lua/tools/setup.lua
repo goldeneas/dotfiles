@@ -1,5 +1,12 @@
 local utils = require("utils")
 
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "*" },
+    callback = function()
+        pcall(vim.treesitter.start)
+    end,
+})
+
 vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function()
         if not utils.is_format_on_save() then return end
