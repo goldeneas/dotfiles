@@ -4,6 +4,10 @@ return {
         -- "nvim-tree/nvim-web-devicons",
         { "junegunn/fzf", build = "./install --bin" }
     },
+
+    ---@module "fzf-lua"
+    ---@type fzf-lua.Config|{}
+    ---@diagnostic disable: missing-fields
     opts = {
         defaults = {
             formatter = "path.filename_first",
@@ -74,4 +78,5 @@ return {
             }
         }
     }
+    ---@diagnostic enable: missing-fields
 }

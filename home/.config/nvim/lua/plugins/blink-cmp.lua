@@ -86,7 +86,7 @@ return {
         -- default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, via `opts_extend`
         sources = {
-            default = { "lsp", "lazydev", "path" },
+            default = { "lsp", "path" },
             providers = {
                 buffer = { enabled = false },
                 snippets = { enabled = false },
@@ -97,12 +97,12 @@ return {
                         end,
                     },
                 },
-                lazydev = {
-                    name = "LazyDev",
-                    enabled = true,
-                    module = "lazydev.integrations.blink",
-                    score_offset = 100, -- make lazydev completions top priority
-                },
+                -- lazydev = {
+                --     name = "LazyDev",
+                --     enabled = true,
+                --     module = "lazydev.integrations.blink",
+                --     score_offset = 100, -- make lazydev completions top priority
+                -- },
             },
             transform_items = function(_, items)
                 return vim.tbl_filter(function(item)

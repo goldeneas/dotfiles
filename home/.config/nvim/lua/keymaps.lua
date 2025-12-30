@@ -55,9 +55,9 @@ map("n", "<leader>fg", "<cmd>FzfLua builtin<cr>", "[F]ind [G]lobal")
 map("n", "-", utils.toggle_oil, "Open Oil")
 
 -- LSP/Quickfix
-map("n", "<C-x>", "<cmd>Trouble diagnostics toggle<cr>", "Show Errors Tab")
+map("n", "<C-x>", "<cmd>FzfLua lsp_workspace_diagnostics<cr>", "Show Errors Tab")
 map("n", "<C-s>", utils.toggle_diagnostic_float, "Local Diagnostics")
-map("n", "<C-a>", vim.lsp.buf.code_action, "Code [A]ctions")
+map("n", "<C-a>", "<cmd>FzfLua lsp_code_actions<cr>", "Code [A]ctions")
 map("n", "K", utils.hover_with_rounded, "Hover Symbol")
 map("n", "<leader>xr", "<cmd>FzfLua lsp_references<cr>", "Show [R]eferences")
 -- map("n", "<C-k>", utils.goto_next_error, "Goto Next Error")

@@ -36,3 +36,5 @@ require("tools.setup")
 -- for some reason something is changing these highlight
 -- this is required at last to be sure that those get overridden correctly
 require("colors")
+
+require("autocmds")
