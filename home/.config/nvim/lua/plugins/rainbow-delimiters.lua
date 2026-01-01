@@ -2,6 +2,10 @@ return {
     "hiphish/rainbow-delimiters.nvim",
     submodules = false,
     config = function()
+        vim.cmd("hi! RainbowDelimiterOrange ctermfg=15 guifg=#d65d0e")
+        vim.cmd("hi! RainbowDelimiterBlue ctermfg=12 guifg=#458588")
+        vim.cmd("hi! RainbowDelimiterViolet ctermfg=13 guifg=#b16286")
+
         ---@type rainbow_delimiters.config
         vim.g.rainbow_delimiters = {
             strategy = {
@@ -15,13 +19,9 @@ return {
                 [''] = 110,
             },
             highlight = {
-                'RainbowDelimiterRed',
-                'RainbowDelimiterYellow',
-                'RainbowDelimiterBlue',
                 'RainbowDelimiterOrange',
-                'RainbowDelimiterGreen',
                 'RainbowDelimiterViolet',
-                'RainbowDelimiterCyan',
+                'RainbowDelimiterBlue',
             },
         }
     end
