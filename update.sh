@@ -1,5 +1,5 @@
 if [[ $# < 1 ]]; then
-    echo "You need to specify one of these args: [nvim, zsh, tmux]"
+    echo "You need to specify one of these args: [nvim, zsh, tmux, wezterm]"
     exit 0
 fi
 
@@ -34,6 +34,17 @@ if [[ $target == "tmux" ]]; then
 
     echo "Updating tmux..."
     cp $HOME/.tmux.conf $local_config_path
+
+    echo "Done!"
+    exit 1
+fi
+
+if [[ $target == "wezterm" ]]; then
+    echo "Removing wezterm config..."
+    rm home/.wezterm.lua
+
+    echo "Updating wezterm..."
+    cp $HOME/.wezterm.lua home/
 
     echo "Done!"
     exit 1

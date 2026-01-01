@@ -48,5 +48,10 @@ config.font_rules = {
     },
 }
 
+config.foreground_text_hsb = {
+    brightness = 0.7, -- 0.0 è nero totale, 1.0 è normale, > 1.0 aumenta la luminosità
+    saturation = 1.0, -- 1.0 è normale, < 1.0 sbiadisce i colori verso il grigio
+}
+
 
 return config
