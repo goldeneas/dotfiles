@@ -30,15 +30,8 @@ require("lazy").setup({
 
 require("keymaps")
 require("commands")
-require("filetype")
-
-require("lsp.settings")
-require("lsp.loader")
-
-require("tools.setup")
-
--- for some reason something is changing these highlight
--- this is required at last to be sure that those get overridden correctly
 require("colors")
-
 require("rooter")
+
+require("lsp")
+require("tools")
