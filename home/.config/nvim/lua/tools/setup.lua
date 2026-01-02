@@ -1,4 +1,5 @@
-local utils = require("utils")
+local helper = require("tools.helper")
+local formatter = require("tools.formatter")
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "*" },
@@ -9,8 +10,8 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function()
-        if not utils.is_format_on_save() then return end
-        utils.format()
+        if not formatter.is_on_save() then return end
+        formatter.format()
     end,
 })
 
@@ -20,4 +21,4 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
     end,
 })
 
-utils.install_all()
+helper.install_all()

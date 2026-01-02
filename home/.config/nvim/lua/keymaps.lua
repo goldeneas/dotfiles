@@ -1,4 +1,5 @@
 local utils = require("utils")
+local formatter = require("tools.formatter")
 
 local del = vim.keymap.del
 local map = utils.map
@@ -52,7 +53,7 @@ map("n", "<leader>ff", "<cmd>FzfLua files<cr>", "[F]ind [F]ile")
 map("n", "<leader>fr", "<cmd>FzfLua oldfiles<cr>", "[F]ind [R]ecent File")
 map("n", "<leader>fs", "<cmd>FzfLua live_grep<cr>", "[F]ind [S]tring")
 map("n", "<leader>fg", "<cmd>FzfLua builtin<cr>", "[F]ind [G]lobal")
-map("n", "-", utils.toggle_oil, "Open Oil")
+map("n", "-", "<cmd>Oil<cr>", "Open Oil")
 
 -- LSP/Quickfix
 map("n", "<C-x>", "<cmd>FzfLua lsp_workspace_diagnostics<cr>", "Show Errors Tab")
@@ -63,7 +64,7 @@ map("n", "<leader>xr", "<cmd>FzfLua lsp_references<cr>", "Show [R]eferences")
 -- map("n", "<C-k>", utils.goto_next_error, "Goto Next Error")
 -- map("n", "<C-j>", utils.goto_prev_error, "Goto Prev Error")
 map("n", "<F4>", utils.qf_toggle, "Toggle Quickfix")
-map("n", "<M-f>", utils.toggle_format_on_save, "Format Buffer")
+map("n", "<M-f>", formatter.toggle_on_save, "Toggle Format On Save")
 
 -- Rename
 map("n", "<leader>r", utils.rename, "[R]ename")

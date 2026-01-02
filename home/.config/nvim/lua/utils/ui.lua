@@ -68,8 +68,4 @@ M.open_float = function(opts)
     return { win = win, buf = buf }
 end
 
-M.toggle_oil = function()
-    require("oil").open_float()
-end
-
 return M

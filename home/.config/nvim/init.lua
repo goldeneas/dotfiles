@@ -41,4 +41,4 @@ require("tools.setup")
 -- this is required at last to be sure that those get overridden correctly
 require("colors")
 
-require("autocmds")
+require("rooter")
