@@ -4,7 +4,6 @@ return {
         html = { "superhtml" },
     },
     linters = {
-        go = { "golangcilint" },
     },
     lsp = {
         "jdtls",
