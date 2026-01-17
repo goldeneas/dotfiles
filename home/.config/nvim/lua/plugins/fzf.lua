@@ -4,7 +4,11 @@ return {
         -- "nvim-tree/nvim-web-devicons",
         { "junegunn/fzf", build = "./install --bin" }
     },
-
+    config = function(_, opts)
+        local fzf = require("fzf-lua")
+        fzf.setup(opts)
+        fzf.register_ui_select()
+    end,
     ---@module "fzf-lua"
     ---@type fzf-lua.Config|{}
     ---@diagnostic disable: missing-fields

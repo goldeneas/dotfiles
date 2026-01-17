@@ -15,6 +15,5 @@ return {
         "zig", "markdown", "java", "go",
     },
     mason_aliases = {
-        ["golangcilint"] = "golangci-lint",
     }
 }
