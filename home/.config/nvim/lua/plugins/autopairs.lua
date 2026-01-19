@@ -4,5 +4,6 @@ return {
     config = true,
     opts = {
         enable_moveright = false,
+        enable_check_bracket_line = false, --- check bracket in same line
     },
 }
