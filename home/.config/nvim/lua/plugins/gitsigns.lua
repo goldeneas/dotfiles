@@ -9,6 +9,7 @@ return {
             changedelete = { text = "┃" },
             untracked    = { text = "┃" },
         },
+
         signs_staged = {
             add          = { text = "┃" },
             change       = { text = "┃" },
