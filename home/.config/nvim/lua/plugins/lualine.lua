@@ -92,8 +92,9 @@ local lsp_status_component = function()
         padding = { left = 0, right = 1 },
         fmt = function(str)
             if str == "" then
-                return ""
+                return "[S: none]"
             end
+
             return "[S: " .. str .. "]"
         end,
     }
