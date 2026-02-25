@@ -9,7 +9,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.freetype_load_target = "Light"
 
 config.font_size = 12
-config.color_scheme = 'GruvboxDark'
+config.color_scheme = 'Gruvbox dark, hard (base16)'
 config.font = font
 
 config.window_close_confirmation = "NeverPrompt"
