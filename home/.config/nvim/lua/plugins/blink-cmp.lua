@@ -1,8 +1,5 @@
 return {
     "saghen/blink.cmp",
-    dependencies = {
-        "mikavilpas/blink-ripgrep.nvim",
-    },
     lazy = false, -- lazy loading handled internally
 
     -- use a release tag to download pre-built binaries
@@ -21,7 +18,13 @@ return {
         },
 
         fuzzy = {
-            implementation = "prefer_rust_with_warning"
+            implementation = "prefer_rust_with_warning",
+            sorts = {
+                "score",
+                "exact",
+                "sort_text",
+                "label"
+            }
         },
 
         completion = {
@@ -97,12 +100,6 @@ return {
                         end,
                     },
                 },
-                -- lazydev = {
-                --     name = "LazyDev",
-                --     enabled = true,
-                --     module = "lazydev.integrations.blink",
-                --     score_offset = 100, -- make lazydev completions top priority
-                -- },
             },
             transform_items = function(_, items)
                 return vim.tbl_filter(function(item)
