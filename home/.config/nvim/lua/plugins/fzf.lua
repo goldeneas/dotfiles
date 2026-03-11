@@ -20,12 +20,6 @@ return {
             header = false,
             git_icons = false,
 
-            -- TODO:
-            -- add gap betwenn marker and git icons
-            -- change tab and s-tab keybinds
-            -- -- tab goes down instead of up and viceversa
-            -- -- tab and s-tab also mark files (idk what that does)
-
             winopts = {
                 treesitter = true,
                 backdrop = 100,
