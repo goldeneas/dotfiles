@@ -92,7 +92,6 @@ return {
             default = { "lsp", "path" },
             providers = {
                 buffer = { enabled = false },
-                snippets = { enabled = false },
                 path = {
                     opts = {
                         get_cwd = function(_)
@@ -101,11 +100,6 @@ return {
                     },
                 },
             },
-            transform_items = function(_, items)
-                return vim.tbl_filter(function(item)
-                    return item.kind ~= require('blink.cmp.types').CompletionItemKind.Snippet
-                end, items)
-            end,
         }
     }
 }

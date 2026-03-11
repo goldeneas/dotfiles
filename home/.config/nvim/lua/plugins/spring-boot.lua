@@ -1,8 +1,8 @@
 return {
-  "JavaHello/spring-boot.nvim",
-  lazy = true,
-  dependencies = {
-    "mfussenegger/nvim-jdtls",
-  },
-  opts = {}
+    "JavaHello/spring-boot.nvim",
+    ft = "java",
+    dependencies = {
+        "mfussenegger/nvim-jdtls",
+    },
+    opts = {}
 }
