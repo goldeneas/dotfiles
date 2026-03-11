@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [[ $# < 1 ]]; then
     echo "You need to specify one of these args: [nvim, zsh, tmux, wezterm]"
     exit 0
