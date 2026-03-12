@@ -17,7 +17,7 @@ vim.list_extend(bundles, spring.java_extensions())
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = vim.fn.stdpath('data') .. '/jdtls-workspace/' .. project_name
 
-local config = {
+return {
     cmd = {
         'java',
         '-javaagent:' .. lombok_path,
@@ -68,9 +68,4 @@ local config = {
     init_options = {
         bundles = bundles
     },
-}
-
-return {
-    name = "jdtls",
-    config = config
 }

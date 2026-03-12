@@ -12,7 +12,7 @@ return {
     },
     parsers = {
         "rust", "c", "python", "html", "javascript", "css",
-        "zig", "markdown", "java", "go",
+        "zig", "markdown", "java", "go", "dart",
     },
     mason_aliases = {
     }
