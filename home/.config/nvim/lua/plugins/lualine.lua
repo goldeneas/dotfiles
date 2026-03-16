@@ -51,25 +51,25 @@ local auto_format_component = function()
 
     local formatters = formatter.list_for_buffer()
     if not (#formatters == 0) then
-        return string.format("[F: %s]", table.concat(formatters, " | "))
+        return string.format("[FMT: %s]", table.concat(formatters, " | "))
     end
 
     local is_lsp_attached = #vim.lsp.get_clients({ bufnr = 0 }) > 0
     if is_lsp_attached then
-        return "[F: lsp]"
+        return "[FMT: lsp]"
     end
 
-    return "[F: none]"
+    return "[FMT: none]"
 end
 
 local linter_component = function()
     local ft = vim.bo.filetype
     local linters = linter.list_by_ft(ft)
     if (#linters == 0) then
-        return "[L: none]"
+        return "[LNT: none]"
     end
 
-    return string.format("[L: %s]", table.concat(linters, " | "))
+    return string.format("[LNT: %s]", table.concat(linters, " | "))
 end
 
 local filename_component = function()
@@ -92,10 +92,10 @@ local lsp_status_component = function()
         padding = { left = 0, right = 1 },
         fmt = function(str)
             if str == "" then
-                return "[S: none]"
+                return "[LSP: none]"
             end
 
-            return "[S: " .. str .. "]"
+            return "[LSP: " .. str .. "]"
         end,
     }
 end
