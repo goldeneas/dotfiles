@@ -1,6 +1,6 @@
 {
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
-  "conform.nvim": { "branch": "master", "commit": "24c70347f6b2128679f47d2eb765156ef34bf9e0" },
+  "conform.nvim": { "branch": "master", "commit": "619363c30309d29ffa631e67c8183f2a72caa373" },
   "fzf": { "branch": "master", "commit": "3953d1c649f51b129adac1f065c431320f3db467" },
   "fzf-lua": { "branch": "main", "commit": "c8aaa74c97157b2c62bdcfc1e57b15c052dc63ca" },
   "gitsigns.nvim": { "branch": "main", "commit": "dd3f588bacbeb041be6facf1742e42097f62165d" },
@@ -19,7 +19,7 @@
   "nvim-lint": { "branch": "master", "commit": "d48f3a76189d03b2239f6df1b2f7e3fa8353743b" },
   "nvim-lspconfig": { "branch": "master", "commit": "a4ed4e761c400849e8c9f8bda33e5083f890268c" },
   "nvim-treesitter": { "branch": "main", "commit": "4916d6592ede8c07973490d9322f187e07dfefac" },
-  "oil.nvim": { "branch": "master", "commit": "21c669e7bfeb1546ae988b52813138e4d674bbf5" },
+  "oil.nvim": { "branch": "master", "commit": "366b7395a69000f908f42da57843aa90dbdcdcf7" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "a798325b7f36acc62741d1029930a7b96d4dd4bf" },
   "spring-boot.nvim": { "branch": "main", "commit": "98c6ff1dcdda943d341bba3c00ae9d190a2e5f7d" },
   "toggleterm.nvim": { "branch": "main", "commit": "9a88eae817ef395952e08650b3283726786fb5fb" },

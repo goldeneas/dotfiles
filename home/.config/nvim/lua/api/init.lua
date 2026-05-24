@@ -1,11 +1,11 @@
 local M = {}
 
 local modules = {
-    require("utils.core"),
-    require("utils.lsp"),
-    require("utils.ui"),
-    require("utils.system"),
-    require("utils.git"),
+    require("api.core"),
+    require("api.lsp"),
+    require("api.ui"),
+    require("api.system"),
+    require("api.git"),
 }
 
 -- merge in a single M module

@@ -1,8 +1,8 @@
-local utils = require("utils")
+local api = require("api")
 local formatter = require("tools.formatter")
 
 local del = vim.keymap.del
-local map = utils.map
+local map = api.map
 
 -- Useful keymaps from nvim
 -- <C-è>, Switches between current and previous buffer
@@ -29,7 +29,7 @@ map("x", "p", '"_dP', "Just Paste")
 -- Window
 map("n", "<leader>s", "<cmd>split<cr>", "[S]plit [W]indow Horizontally")
 map("n", "<leader>S", "<cmd>vsplit<cr>", "[S]plit [W]indow Vertically")
-map("n", "<leader>3", utils.split_three, "Split Window in [3]")
+map("n", "<leader>3", api.split_three, "Split Window in [3]")
 
 map({ "n", "t" }, "<M-Up>", "<cmd>resize -2<CR>")
 map({ "n", "t" }, "<M-Down>", "<cmd>resize +2<CR>")
@@ -57,17 +57,17 @@ map("n", "-", "<cmd>Oil<cr>", "Open Oil")
 
 -- LSP/Quickfix
 map("n", "<C-x>", "<cmd>FzfLua lsp_workspace_diagnostics<cr>", "Show Errors Tab")
-map("n", "<C-s>", utils.toggle_diagnostic_float, "Local Diagnostics")
+map("n", "<C-s>", api.toggle_diagnostic_float, "Local Diagnostics")
 map("n", "<C-a>", "<cmd>FzfLua lsp_code_actions<cr>", "Code [A]ctions")
-map("n", "K", utils.hover_with_rounded, "Hover Symbol")
+map("n", "K", api.hover_with_rounded, "Hover Symbol")
 map("n", "<leader>xr", "<cmd>FzfLua lsp_references<cr>", "Show [R]eferences")
--- map("n", "<C-k>", utils.goto_next_error, "Goto Next Error")
--- map("n", "<C-j>", utils.goto_prev_error, "Goto Prev Error")
-map("n", "<F4>", utils.qf_toggle, "Toggle Quickfix")
+-- map("n", "<C-k>", api.goto_next_error, "Goto Next Error")
+-- map("n", "<C-j>", api.goto_prev_error, "Goto Prev Error")
+map("n", "<F4>", api.qf_toggle, "Toggle Quickfix")
 map("n", "<M-f>", formatter.toggle_on_save, "Toggle Format On Save")
 
 -- Rename
-map("n", "<leader>r", utils.rename, "[R]ename")
+map("n", "<leader>r", api.rename, "[R]ename")
 
 -- Goto
 map("n", "f", "<Plug>(leap)", "Leap")
@@ -94,7 +94,7 @@ del("n", "<C-W><C-D>")
 map({ "n", "t" }, "<C-q>", "<cmd>1ToggleTerm<cr>", "Toggle Terminal 1")
 map({ "n", "t" }, "<C-w>", "<cmd>2ToggleTerm<cr>", "Toggle Terminal 2")
 map({ "n", "t" }, "<C-e>", "<cmd>3ToggleTerm<cr>", "Toggle Terminal 3")
-map({ "n", "t" }, "<C-g>", utils.toggle_lazygit, "Toggle Lazygit")
+map({ "n", "t" }, "<C-g>", api.toggle_lazygit, "Toggle Lazygit")
 
 -- Sane terminal mode exit
 map("t", "<esc>", "<C-\\><C-n>", "Exit Terminal Mode")
