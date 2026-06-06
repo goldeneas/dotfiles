@@ -27,6 +27,17 @@ return {
             }
         },
 
+        cmdline = {
+            completion = {
+                list = {
+                    selection = {
+                        preselect = false,
+                        auto_insert = true,
+                    }
+                }
+            }
+        },
+
         completion = {
             trigger = {
                 show_on_backspace_in_keyword = true,
