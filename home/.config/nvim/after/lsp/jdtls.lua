@@ -36,7 +36,7 @@ return {
 
     -- `root_dir` must point to the root of your project.
     -- See `:help vim.fs.root`
-    root_dir = vim.fs.root(0, { 'gradlew', '.git', '.gitignore', 'mvnw', 'pom.xml', 'build.gradle' }),
+    root_dir = vim.fs.root(0, { '.git', 'gradlew', '.gitignore', 'mvnw', 'pom.xml', 'build.gradle' }),
 
     -- more settings at:
     -- https://github.com/eclipse-jdtls/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
