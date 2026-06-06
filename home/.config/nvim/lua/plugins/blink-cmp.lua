@@ -79,7 +79,7 @@ return {
 
         -- experimental signature help support
         signature = {
-            enabled = false,
+            enabled = true,
             window = {
                 border = "rounded",
                 winhighlight = "Normal:NormalFloat,FloatBorder:NormalFloat",

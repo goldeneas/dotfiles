@@ -10,6 +10,7 @@ return {
         "gopls",
         "lua-language-server",
         "vscode-spring-boot-tools",
+        "clangd",
     },
     parsers = {
         "rust", "c", "python", "html", "javascript", "css",

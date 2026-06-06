@@ -66,6 +66,6 @@ return {
     },
 
     init_options = {
-        bundles = bundles
+        bundles = bundles,
     },
 }
