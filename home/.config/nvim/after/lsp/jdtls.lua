@@ -40,8 +40,14 @@ return {
 
     -- more settings at:
     -- https://github.com/eclipse-jdtls/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+    -- and
+    -- https://github.com/redhat-developer/vscode-java/blob/8bec23010f419a3fa541b6a1ff194fa670b20918/package.json#L1194
     settings = {
         java = {
+            signatureHelp = {
+                enabled = true
+            },
+
             saveActions = {
                 organizeImports = true,
                 cleanup = true,
@@ -51,7 +57,7 @@ return {
                 actionsOnSave = {
                     "addOverride",
                     "addDeprecated",
-                    -- "invertEquals",
+                    "invertEquals",
                     -- "qualifyMembers",
                     -- "instanceofPatternMatch", disabled: only supported on java16+
                     -- "lambdaExpression",
