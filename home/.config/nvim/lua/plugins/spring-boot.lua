@@ -4,5 +4,6 @@ return {
     dependencies = {
         "mfussenegger/nvim-jdtls",
     },
+    ---@type bootls.Config
     opts = {}
 }
