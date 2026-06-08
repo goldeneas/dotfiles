@@ -93,6 +93,7 @@ del("n", "<C-W><C-D>")
 
 map({ "n", "t" }, "<C-q>", api.toggle_lazygit, "Toggle Lazygit")
 map({ "n", "t" }, "<C-w>", api.toggle_lazysql, "Toggle Lazysql")
+map({ "n", "t" }, "<C-e>", api.toggle_posting, "Toggle Posting")
 
 -- Sane terminal mode exit
 map("t", "<C-d>", "<C-\\><C-n>", "Exit Terminal Mode")

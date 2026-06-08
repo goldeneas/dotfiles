@@ -49,4 +49,8 @@ M.toggle_lazysql = function()
     M.toggle_term_tool("lazysql")
 end
 
+M.toggle_posting = function()
+    M.toggle_term_tool("posting")
+end
+
 return M
