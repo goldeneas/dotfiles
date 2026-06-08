@@ -28,4 +28,8 @@ M.save_and_quit = function()
     vim.cmd("qa") -- Quit all
 end
 
+M.has_cmd = function(cmd)
+    return vim.fn.executable(cmd) == 1
+end
+
 return M

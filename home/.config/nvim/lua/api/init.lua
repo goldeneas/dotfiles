@@ -5,7 +5,7 @@ local modules = {
     require("api.lsp"),
     require("api.ui"),
     require("api.system"),
-    require("api.git"),
+    require("api.term_tools"),
 }
 
 -- merge in a single M module

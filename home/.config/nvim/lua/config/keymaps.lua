@@ -91,10 +91,8 @@ map("n", "<esc>", "<cmd>nohlsearch<cr>", "Remove Search Highlights")
 del("n", "<C-W>d")
 del("n", "<C-W><C-D>")
 
-map({ "n", "t" }, "<C-q>", "<cmd>1ToggleTerm<cr>", "Toggle Terminal 1")
-map({ "n", "t" }, "<C-w>", "<cmd>2ToggleTerm<cr>", "Toggle Terminal 2")
-map({ "n", "t" }, "<C-e>", "<cmd>3ToggleTerm<cr>", "Toggle Terminal 3")
-map({ "n", "t" }, "<C-g>", api.toggle_lazygit, "Toggle Lazygit")
+map({ "n", "t" }, "<C-q>", api.toggle_lazygit, "Toggle Lazygit")
+map({ "n", "t" }, "<C-w>", api.toggle_lazysql, "Toggle Lazysql")
 
 -- Sane terminal mode exit
-map("t", "<esc>", "<C-\\><C-n>", "Exit Terminal Mode")
+map("t", "<C-d>", "<C-\\><C-n>", "Exit Terminal Mode")
