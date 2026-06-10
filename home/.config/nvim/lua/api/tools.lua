@@ -16,7 +16,7 @@ local function collect_tools(tool_list, source_table)
     end
 end
 
-M.install_all_mason_tools = function()
+M.install_mason_tools = function()
     local registry = require("mason-registry")
     local ensure_installed = require("config.ensure_installed")
 
@@ -43,7 +43,7 @@ M.install_all_mason_tools = function()
     end
 end
 
-M.install_all_ts_parsers = function()
+M.install_ts_parsers = function()
     local ts = require("nvim-treesitter")
     local ensure_installed = require("config.ensure_installed")
 
@@ -53,9 +53,9 @@ M.install_all_ts_parsers = function()
     ts.install(tools)
 end
 
-M.install_all = function()
-    M.install_all_mason_tools()
-    M.install_all_ts_parsers()
+M.install_tools = function()
+    M.install_mason_tools()
+    M.install_ts_parsers()
 end
 
 return M

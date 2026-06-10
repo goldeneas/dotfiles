@@ -1,5 +1,4 @@
-local formatter = require("tools.formatter")
-local linter = require("tools.linter")
+local api = require("api")
 
 -- FUNCTIONS
 
@@ -46,10 +45,10 @@ local diagnostics_component = function()
 end
 
 local auto_format_component = function()
-    local is_enabled = formatter.is_on_save()
+    local is_enabled = api.is_format_on_save()
     if not is_enabled then return "" end
 
-    local formatters = formatter.list_for_buffer()
+    local formatters = api.list_formatters_for_buffer()
     if not (#formatters == 0) then
         return string.format("[FMT: %s]", table.concat(formatters, " | "))
     end
@@ -64,7 +63,7 @@ end
 
 local linter_component = function()
     local ft = vim.bo.filetype
-    local linters = linter.list_by_ft(ft)
+    local linters = api.list_linters_by_ft(ft)
     if (#linters == 0) then
         return "[LNT: none]"
     end
