@@ -3,15 +3,36 @@ local spring = require("spring_boot")
 
 local mason_path = vim.fn.stdpath('data') .. '/mason'
 local jdtls_path = mason_path .. '/packages/jdtls'
-local lombok_path = jdtls_path .. '/lombok.jar'
+local lombok_jar = jdtls_path .. '/lombok.jar'
+
+local java_test_path = mason_path .. '/packages/java-test'
+local java_debug_path = mason_path .. '/packages/java-debug-adapter'
+local java_debug_jar = vim.fn.glob(java_debug_path .. "/extension/server/com.microsoft.java*")
 
 local os = api.get_os()
-
 if not os then
     vim.notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
 end
 
 local bundles = {}
+
+-- add java-debug
+table.insert(bundles, java_debug_jar)
+
+-- add java-test
+local java_test_bundles = vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", 1), "\n")
+local excluded = {
+    "com.microsoft.java.test.runner-jar-with-dependencies.jar",
+    "jacocoagent.jar",
+}
+for _, java_test_jar in ipairs(java_test_bundles) do
+    local fname = vim.fn.fnamemodify(java_test_jar, ":t")
+    if not vim.tbl_contains(excluded, fname) then
+        table.insert(bundles, java_test_jar)
+    end
+end
+
+-- add spring
 vim.list_extend(bundles, spring.java_extensions())
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
@@ -20,7 +41,7 @@ local workspace_dir = vim.fn.stdpath('data') .. '/jdtls-workspace/' .. project_n
 return {
     cmd = {
         'java',
-        '-javaagent:' .. lombok_path,
+        '-javaagent:' .. lombok_jar,
         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
         '-Dosgi.bundles.defaultStartLevel=4',
         '-Declipse.product=org.eclipse.jdt.ls.core.product',

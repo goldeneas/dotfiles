@@ -19,5 +19,3 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
         api.lint()
     end,
 })
-
-api.install_tools()
