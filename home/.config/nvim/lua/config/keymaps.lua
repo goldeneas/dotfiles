@@ -85,3 +85,11 @@ api.map("n", "<esc>", "<cmd>nohlsearch<cr>", "Remove Search Highlights")
 
 -- Sane terminal mode exit
 api.map("t", "<C-d>", "<C-\\><C-n>", "Exit Terminal Mode")
+
+-- DAP
+local dap = require("dap")
+api.map('n', '<F1>', dap.toggle_breakpoint, "Toggle Breakpoint")
+api.map('n', '<F5>', dap.continue, "Continue")
+api.map('n', '<F10>', dap.step_over, "Step Over")
+api.map('n', '<F11>', dap.step_into, "Step Into")
+api.map('n', '<F12>', dap.step_out, "Step Out")
