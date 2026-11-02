@@ -20,7 +20,7 @@ local ensure_installed = {
     },
     parsers = {
         "rust", "c", "python", "html", "javascript", "css",
-        "zig", "markdown", "java", "go", "dart",
+        "zig", "markdown", "java", "go", "dart", "sql"
     },
     mason_aliases = {
     }

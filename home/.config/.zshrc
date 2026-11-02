@@ -1,3 +1,12 @@
+# autorun tmux on start
+# check if tmux is available
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    # avoid creating a tmux session everytime
+    # by attaching to a session if it exists already
+    tmux new -As0
+fi
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -100,27 +109,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# CUSTOM
-
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="opt/homebrew/opt/postgresql@18/bin:$PATH"
-
-# autorun tmux on start
-# check if tmux is available
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-    # avoid creating a tmux session everytime
-    # by attaching to a session if it exists already
-    tmux new -As0
-fi
-
-# mise
-if ! command -v mise &> /dev/null; then
-    echo "installing mise"
-    curl https://mise.run | sh
-fi
-
-eval "$(mise activate zsh)"
-eval "$(~/.local/bin/mise activate)"
+. "$HOME/.cargo/env"
 
 # Import files with secrets
 [ -f ~/.zsh_secrets ] && source ~/.zsh_secrets
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
